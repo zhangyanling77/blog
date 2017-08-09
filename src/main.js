@@ -12,10 +12,6 @@ import './style/base.scss'
 const {Header, Footer, Sider, Content} = Layout;
 console.log(reducers)
 const store = createStore(reducers)
-
-let unsubscribe = store.subscribe(() =>
-  console.log(store.getState())
-)
 console.log(store.getState())
 export default class App extends Component {
     render() {
