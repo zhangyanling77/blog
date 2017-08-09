@@ -6,6 +6,7 @@ import {Layout} from 'antd';
 import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom'
 import Rightcontent from "./components/page/content.jsx"
 import NewArticle from './container/newArticle//newArticle.jsx'
+import Test from "./test.jsx"
 import 'antd/dist/antd.css'
 import './style/base.scss'
 
@@ -25,6 +26,7 @@ export default class App extends Component {
                 <div className="root">
                     <Route exact path="/" component={Index}></Route>
                     <Route path="/article-detail/:id" component={NewArticle}></Route>
+                    <Route path='/test' component={Test} />
                 </div>
             </Router>
           </Provider>
