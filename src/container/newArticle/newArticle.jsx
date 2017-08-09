@@ -1,9 +1,16 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
 import {Row, Col, Input, Button} from 'antd'
 import BlogEdit from '../../components/edit/index.jsx';
 import './index.scss'
 // import '../../style/base.scss';
 class NewArticle extends Component {
+    constructor(props){
+        super(props)
+    }
+    componentDidUpdate(prevProps, prevState) {
+    }
+    
     render() {
         return (
             <div className="publish-article blog-flex blog-flex-row-y">
@@ -12,10 +19,10 @@ class NewArticle extends Component {
                 <div className="edit-wrap ">
                     <Row className="text-body">
                         <Col className="text-body blog-edit" span={12}>
-                            <BlogEdit/>
+                            <BlogEdit />
                         </Col>
                         <Col className="text-body" span={12}>
-                            <div className="preview"></div>
+                            <div className="preview">{ this.props.editorValue }</div>
                         </Col>
                     </Row>
                 </div>
@@ -26,5 +33,9 @@ class NewArticle extends Component {
         );
     }
 }
-
-export default NewArticle;
+const mapStateToProps = (state, ownProps) => {
+    return {
+        editorValue: state.publishArticle.editorValue,
+    }
+}
+export default connect(mapStateToProps)(NewArticle);

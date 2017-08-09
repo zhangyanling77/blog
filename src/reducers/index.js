@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux';
-import publishAritcle from './publishArticle.js';
+import publishArticle from './publishArticle.js';
 
-const blog = combineReducers({publishAritcle})
+const blog = combineReducers({publishArticle})
 export default blog;

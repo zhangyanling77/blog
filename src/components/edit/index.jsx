@@ -1,17 +1,14 @@
 import React, {Component} from 'react';
-// import {Editor, EditorState} from 'draft-js';
+import {connect} from 'react-redux';
 import Simditor from 'simditor';
-
+import {addEditor} from '../../actions/action.js';
 class BlogEdit extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            editor:{}//编辑器对象
-        }
     }
     componentDidMount() {
         let editor = new Simditor({
-            textarea:this.refs.edit,
+            textarea: this.refs.edit,
             toolbar: [
                 'title',
                 'bold',
@@ -25,16 +22,19 @@ class BlogEdit extends Component {
                 'alignment'
             ]
         });
-        this.setState({
-            editor
-        });
+        editor.on ('valuechanged', (e, src) =>this.props.addEditor(editor.getValue()));
     }
 
     render() {
         return (
-                <textarea ref="edit"></textarea>
+            <textarea ref="edit"></textarea>
         );
     }
 }
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return {
+        addEditor: (editorValue) => dispatch(addEditor(editorValue))
+    }
+}
 
-export default BlogEdit;
+export default connect(null, mapDispatchToProps)(BlogEdit)
