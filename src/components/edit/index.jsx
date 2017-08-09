@@ -14,6 +14,7 @@ class BlogEdit extends Component {
                 'bold',
                 'italic',
                 'underline',
+                'code',
                 'strikethrough',
                 'color',
                 'ol',

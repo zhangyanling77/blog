@@ -10,12 +10,15 @@ class NewArticle extends Component {
     }
     componentDidUpdate(prevProps, prevState) {
     }
-    
+    submitArticle(e){
+      e.preventDefault();
+      console.log(this.props)
+    }
     render() {
         return (
             <div className="publish-article blog-flex blog-flex-row-y">
                 <Input size="large" placeholder="...标题"/>
-                <Input className="article-label" size="large" placeholder="...标签"/>
+                <Input className="article-label" size="·large" placeholder="...标签"/>
                 <div className="edit-wrap ">
                     <Row className="text-body">
                         <Col className="text-body blog-edit" span={12}>
@@ -27,7 +30,7 @@ class NewArticle extends Component {
                     </Row>
                 </div>
                 <div className="publish-btn">
-                    <Button type="primary" icon="check-circle-o">发布</Button>
+                    <Button type="primary" icon="check-circle-o" onClick={::this.submitArticle}>发布</Button>
                 </div>
             </div>
         );
