@@ -12,7 +12,7 @@ class NewArticle extends Component {
     }
     submitArticle(e){
       e.preventDefault();
-      this.props.history.push('/test')
+      this.props.history.push('/')
     }
     render() {
         return (

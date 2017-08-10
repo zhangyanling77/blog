@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
-const Test = (props)=>(
+const ArticleDetail = (props)=>(
   <div dangerouslySetInnerHTML={{__html: props.editorValue}}>
   </div>
 )
@@ -9,4 +9,4 @@ const mapStateToProps = (state,ownProps)=>{
     editorValue:state.publishArticle.editorValue
   }
 }
-export default connect(mapStateToProps)(Test);
+export default connect(mapStateToProps)(ArticleDetail);
