@@ -27,7 +27,9 @@ html {
 
 	> .root {
 		height: 100%;
-
+		.index-root{
+			height: 100%;
+		}
 		.content,
 		.sider {
 			background-color: $bgColor;
@@ -36,11 +38,14 @@ html {
 		.sider {
 			border-right: 1px solid $borderColor;
 			box-shadow: 1px;
+			background-image: url('../static/images/bg.jpg');
 		}
 
 		.content {
 			padding-top: 40px;
 			padding-left: 100px;
+			overflow-x: hidden;
+			overflow-y: auto;
 		}
 	}
 }

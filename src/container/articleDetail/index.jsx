@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux'
+import './index.scss'
 const ArticleDetail = (props)=>(
-  <div dangerouslySetInnerHTML={{__html: props.editorValue}}>
+  <div className="artile-detail" dangerouslySetInnerHTML={{__html: props.editorValue}}>
   </div>
 )
 const mapStateToProps = (state,ownProps)=>{

@@ -9,7 +9,7 @@ import NewArticle from './container/newArticle//newArticle.jsx'
 import ArticleDetail from "./container/articleDetail/index.jsx"
 import 'antd/dist/antd.css'
 import './style/base.scss'
-
+import '../node_modules/simditor/styles/simditor.scss';
 const {Header, Footer, Sider, Content} = Layout;
 console.log(reducers)
 const store = createStore(reducers)
@@ -31,8 +31,8 @@ export default class App extends Component {
     }
 }
 const Index = () => (
-    <Layout className="root">
-        <Sider className="sider" width="350">
+    <Layout className="index-root">
+        <Sider className="sider" width="400">
             <LeftMenu/>
         </Sider>
         <Layout>
