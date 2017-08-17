@@ -47,4 +47,3 @@ INSERT INTO `test1` (`id`,`emp_id`,`nick`,`department`) VALUES (4,'1','小红','
 INSERT INTO `test1` (`id`,`emp_id`,`nick`,`department`) VALUES (5,'1','小红','技术部');
 INSERT INTO `test1` (`id`,`emp_id`,`nick`,`department`) VALUES (6,'1','小红',NULL);
 INSERT INTO `test1` (`id`,`emp_id`,`nick`,`department`) VALUES (7,'1','小红',NULL);
-
