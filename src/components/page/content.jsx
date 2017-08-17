@@ -68,16 +68,12 @@ export default class Content extends Component {
             ]
         }
     }
-    componentDidMount() {
-        console.log(this,this.refs,this._test);
-    }
-    
     render() {
         let articles = this
             .state
             .articles
             .map((ele, index) => {
-                return <Article ref={node=>this._test=node} key={index} article={ele}/>
+                return <Article key={index} article={ele}/>
             })
         return (
             <div className="blog-flex blog-flex-row-y">

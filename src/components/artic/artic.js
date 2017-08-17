@@ -6,11 +6,9 @@ export default class Artic extends Component {
     constructor(props) {
         super(props);
 
-        this.previousLocation = this.props.location;
-        this.state = {
-            test:'test'
-        }
+        this.previousLocation = this.props.location
     }
+
      componentWillUpdate(nextProps) {
        console.log(nextProps);
       //  const { location } = this.props
@@ -37,7 +35,7 @@ export default class Artic extends Component {
                             <span>回复</span>
                         </div>
                     </div>
-                    <Route path="/" render={() =><div> home </div>}></Route>
+                    <Route path="/" render={() =>< div > home < /div>}></Route>
                     <Route exact path="/article-detail" component={test}></Route>
                 </div>
             </Router>
