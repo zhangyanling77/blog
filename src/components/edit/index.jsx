@@ -5,6 +5,9 @@ import {addEditor} from '../../actions/action.js';
 class BlogEdit extends Component {
     constructor(props) {
         super(props);
+        this.state={
+            test:11111
+        }
     }
     componentDidMount() {
         let editor = new Simditor({

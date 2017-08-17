@@ -7,13 +7,20 @@ import './index.scss'
 class NewArticle extends Component {
     constructor(props){
         super(props)
+        this.state = {
+            test:123123
+        }
     }
     componentDidUpdate(prevProps, prevState) {
     }
     submitArticle(e){
       e.preventDefault();
       this.props.history.push('/')
+      console.log(this.refs)
     }
+    componentDidMount() {
+    }
+    
     render() {
         return (
             <div className="publish-article blog-flex blog-flex-row-y">
@@ -22,7 +29,7 @@ class NewArticle extends Component {
                 <div className="edit-wrap ">
                     <Row className="text-body">
                         <Col className="text-body blog-edit" span={12}>
-                            <BlogEdit />
+                            <BlogEdit ref="aa" />
                         </Col>
                         <Col className="text-body" span={12}>
                             <div className="preview">{ this.props.editorValue }</div>

@@ -7,8 +7,14 @@ export default class Artic extends Component {
         super(props);
 
         this.previousLocation = this.props.location
+        this.state={
+            test:111111111
+        }
+        this.test = this.test.bind(this)
     }
-
+    test(){
+        console.log(123)
+    }
     componentWillUpdate(nextProps) {
         //  const { location } = this.props  // 如果 props.location 不是 modal 的话，就把
         // this.props.location  // 赋值给 previousLocation。  if ( nextProps.history.action

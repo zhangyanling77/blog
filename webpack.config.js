@@ -4,8 +4,8 @@ var OpenBrowserPlugin = require('open-browser-webpack-plugin');
 var webpack = require('webpack')
     //定义了一些文件夹的路径
 var ROOT_PATH = path.resolve(__dirname);
-var APP_PATH = path.resolve(ROOT_PATH, './src');
-var BUILD_PATH = path.resolve(ROOT_PATH, './build');
+var APP_PATH = path.resolve(ROOT_PATH, 'src');
+var BUILD_PATH = path.resolve(ROOT_PATH, 'build');
 
 module.exports = {
     //项目的文件夹 可以直接用文件夹名称 默认会找index.js 也可以确定是哪个文件名字
