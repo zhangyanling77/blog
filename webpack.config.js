@@ -13,7 +13,6 @@ module.exports = {
     //输出的文件名 合并以后的js会命名为bundle.js
     output: {
         path: BUILD_PATH,
-        publicPath: '/build/',
         filename: 'bundle.js'
     },
     module: {
@@ -39,6 +38,9 @@ module.exports = {
             test: require.resolve('jquery'),
             loader: 'expose-loader?$!expose-loader?jQuery', // jQuery and $
         }]
+    },
+    devServer:{
+        historyApiFallback: true
     },
     //添加我们的插件 会自动生成一个html文件
     plugins: [
