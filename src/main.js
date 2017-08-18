@@ -1,6 +1,13 @@
+/*
+ * @Author: wangcaowei 
+ * @Date: 2017-08-18 13:02:07 
+ * @Last Modified by: wangcaowei
+ * @Last Modified time: 2017-08-18 15:39:01
+ */
 import React, {Component} from "react";
 import {Provider} from 'react-redux';
-import {createStore} from 'redux';
+import {createStore,applyMiddleware} from 'redux';
+import thunkMiddleWare from 'redux-thunk'
 import reducers from './reducers/index.js';
 import {Layout} from 'antd';
 import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom'
@@ -12,10 +19,9 @@ import './style/base.scss'
 import '../node_modules/simditor/styles/simditor.scss';
 const {Header, Footer, Sider, Content} = Layout;
 console.log(reducers)
-const store = createStore(reducers)
+const store = createStore(reducers,applyMiddleware(thunkMiddleWare))
 
 let unsubscribe = store.subscribe(() => console.log(store.getState()))
-console.log(store.getState())
 export default class App extends Component {
     render() {
         return (

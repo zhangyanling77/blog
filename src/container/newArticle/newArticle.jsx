@@ -1,18 +1,27 @@
+/*
+ * @Author: wangcaowei 
+ * @Date: 2017-08-18 16:58:14 
+ * @Last Modified by: wangcaowei
+ * @Last Modified time: 2017-08-18 17:03:33
+ */
 import React, {Component} from 'react';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import {Row, Col, Input, Button} from 'antd'
 import BlogEdit from '../../components/edit/index.jsx';
+import {asyncActionTest} from '../../actions/action.js'
 import './index.scss'
-// import '../../style/base.scss';
 class NewArticle extends Component {
-    constructor(props){
+    constructor(props) {
         super(props)
     }
-    componentDidUpdate(prevProps, prevState) {
-    }
-    submitArticle(e){
-      e.preventDefault();
-      this.props.history.push('/')
+    componentDidUpdate(prevProps, prevState) {}
+    submitArticle(e) {
+        e.preventDefault();
+        //测试
+        // this
+        //     .props
+        //     .testAsyncFetch()
+          this.props.history.push('/')
     }
     render() {
         return (
@@ -22,23 +31,26 @@ class NewArticle extends Component {
                 <div className="edit-wrap ">
                     <Row className="text-body">
                         <Col className="text-body blog-edit" span={12}>
-                            <BlogEdit />
+                            <BlogEdit/>
                         </Col>
                         <Col className="text-body" span={12}>
-                            <div className="preview">{ this.props.editorValue }</div>
+                            <div className="preview">{this.props.editorValue}</div>
                         </Col>
                     </Row>
                 </div>
                 <div className="publish-btn">
-                    <Button type="primary" icon="check-circle-o" onClick={::this.submitArticle}>发布</Button>
+                    <Button type="primary" icon="check-circle-o" onClick={:: this.submitArticle}>发布</Button>
                 </div>
             </div>
         );
     }
 }
 const mapStateToProps = (state, ownProps) => {
+    return {editorValue: state.publishArticle.editorValue}
+}
+const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        editorValue: state.publishArticle.editorValue,
+        testAsyncFetch: () => dispatch(asyncActionTest())
     }
 }
-export default connect(mapStateToProps)(NewArticle);
+export default connect(mapStateToProps,mapDispatchToProps)(NewArticle);

@@ -1,8 +1,14 @@
+/*
+ * @Author: wangcaowei 
+ * @Date: 2017-08-18 16:55:59 
+ * @Last Modified by: wangcaowei 
+ * @Last Modified time: 2017-08-18 16:55:59 
+ */
 var path = require('path');
 var HtmlwebpackPlugin = require('html-webpack-plugin');
 var OpenBrowserPlugin = require('open-browser-webpack-plugin');
 var webpack = require('webpack')
-    //定义了一些文件夹的路径
+// var proxy = require('http-proxy-middleware') 定义了一些文件夹的路径
 var ROOT_PATH = path.resolve(__dirname);
 var APP_PATH = path.resolve(ROOT_PATH, './src');
 var BUILD_PATH = path.resolve(ROOT_PATH, './build');
@@ -16,44 +22,39 @@ module.exports = {
         filename: 'bundle.js'
     },
     module: {
-        loaders: [{
-            test: /\.css$/,
-            loaders:['style-loader',"css-loader"]
-        },{
-            test: /\.scss$/,
-            loaders:'style-loader!css-loader!sass-loader'
-        }, {
-            test: /\.(png|jpg|gif)$/,
-            // loader: 'url-loader?limit=8192'
-            loader: 'file-loader',
-            options: {
-                name: '[name].[ext]?[hash]'
-            },
-        }, {
-            test: /\.(js|jsx)$/, //一个匹配loaders所处理的文件的拓展名的正则表达式，这里用来匹配js和jsx文件（必须）
-            exclude: /node_modules/, //屏蔽不需要处理的文件（文件夹）（可选）
-            loader: 'babel-loader' //loader的名称（必须）
-        },
-        {
-            test: require.resolve('jquery'),
-            loader: 'expose-loader?$!expose-loader?jQuery', // jQuery and $
-        }]
+        loaders: [
+            {
+                test: /\.css$/,
+                loaders: ['style-loader', "css-loader"]
+            }, {
+                test: /\.scss$/,
+                loaders: 'style-loader!css-loader!sass-loader'
+            }, {
+                test: /\.(png|jpg|gif)$/,
+                // loader: 'url-loader?limit=8192'
+                loader: 'file-loader',
+                options: {
+                    name: '[name].[ext]?[hash]'
+                }
+            }, {
+                test: /\.(js|jsx)$/, //一个匹配loaders所处理的文件的拓展名的正则表达式，这里用来匹配js和jsx文件（必须）
+                exclude: /node_modules/, //屏蔽不需要处理的文件（文件夹）（可选）
+                loader: 'babel-loader' //loader的名称（必须）
+            }, {
+                test: require.resolve('jquery'),
+                loader: 'expose-loader?$!expose-loader?jQuery', // jQuery and $
+            }
+        ]
     },
-    devServer:{
+    devServer: {
         historyApiFallback: true
     },
     //添加我们的插件 会自动生成一个html文件
     plugins: [
-            new HtmlwebpackPlugin({
-                title:'test'
-            }),
-            new webpack.HotModuleReplacementPlugin(),
-            new OpenBrowserPlugin()
-        ]
-        // devServer: {
-        //   historyApiFallback: true,
-        //   hot: true,
-        //   inline: true,
-        //   progress: true,
-        // },
+        new HtmlwebpackPlugin({title: 'test'}),
+        new webpack.HotModuleReplacementPlugin(),
+        new OpenBrowserPlugin()
+    ]
+    // devServer: {   historyApiFallback: true,   hot: true,   inline: true,
+    // progress: true, },
 };
