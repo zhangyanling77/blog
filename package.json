@@ -46,6 +46,8 @@
     "koa-body": "^2.3.0",
     "koa-cors": "^0.0.16",
     "koa-route": "^3.2.0",
+    "koa-router": "^7.2.1",
+    "koa-session2": "^2.2.4",
     "koa-static": "^4.0.1",
     "mysql2": "^1.4.1",
     "mysqldump": "^1.4.2",
