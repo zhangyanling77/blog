@@ -2,7 +2,7 @@
  * @Author: wangcaowei 
  * @Date: 2017-08-18 16:58:14 
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-08-18 17:03:33
+ * @Last Modified time: 2017-08-22 00:14:05
  */
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
@@ -18,10 +18,10 @@ class NewArticle extends Component {
     submitArticle(e) {
         e.preventDefault();
         //测试
-        // this
-        //     .props
-        //     .testAsyncFetch()
-          this.props.history.push('/')
+        this
+            .props
+            .testAsyncFetch()
+        //   this.props.history.push('/')
     }
     render() {
         return (
