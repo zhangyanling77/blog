@@ -2,12 +2,13 @@
  * @Author: wangcaowei
  * @Date: 2017-08-17 21:29:21
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-08-17 23:36:34
+ * @Last Modified time: 2017-08-21 16:29:55
  */
 
 const {databaseConf} = require('../config/config')
 const mysqlDump = require('mysqldump');
 const sequelize = require('./db');
+const childProcess = require('pn/child_process')
 const fs = require('pn/fs');
 
 /**
@@ -32,4 +33,14 @@ const execSqlFile = async()=>{
         console.log(error);
     }
 }
-console.log(execSqlFile())
+
+/**
+ * 根据数据库 生成对应的模型
+ */
+const createModelsFormDb = async()=>{
+    try {
+        const res = await childProcess.exec(`sequelize-auto -o ${__dirname}/models -d ${databaseConf.database} -h ${databaseConf.host} -u ${databaseConf.user} -p 3306 -x ${databaseConf.password} -e mysql`);
+    } catch (error) {
+        console.log(error)
+    }
+}
