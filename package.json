@@ -40,10 +40,11 @@
   "dependencies": {
     "antd": "^2.10.2",
     "draft-js": "^0.10.1",
+    "fetch-stringify": "^1.0.2",
     "file-loader": "^0.11.2",
     "jquery": "^3.2.1",
     "koa": "^2.3.0",
-    "koa-body": "^2.3.0",
+    "koa-bodyparser": "^4.2.0",
     "koa-cors": "^0.0.16",
     "koa-route": "^3.2.0",
     "koa-router": "^7.2.1",
