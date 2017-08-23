@@ -1,3 +1,9 @@
+/*
+ * @Author: wangcaowei 
+ * @Date: 2017-08-15 19:58:12
+ * @Last Modified by:   wangcaowei 
+ * @Last Modified time: 2017-08-23 22:28:38 
+ */
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import Simditor from 'simditor';
@@ -5,6 +11,9 @@ import {addEditor} from '../../actions/action.js';
 class BlogEdit extends Component {
     constructor(props) {
         super(props);
+        this.state={
+            editor:{}
+        }
     }
     componentDidMount() {
         let editor = new Simditor({
@@ -23,7 +32,10 @@ class BlogEdit extends Component {
                 'alignment'
             ]
         });
-        editor.on ('valuechanged', (e, src) =>this.props.addEditor(editor.getValue()));
+        this.setState({
+            editor
+        });
+        // editor.on ('valuechanged', (e, src) =>this.props.addEditor(editor.getValue()));
     }
 
     render() {
@@ -32,10 +44,10 @@ class BlogEdit extends Component {
         );
     }
 }
-const mapDispatchToProps = (dispatch, ownProps) => {
-    return {
-        addEditor: (editorValue) => dispatch(addEditor(editorValue))
-    }
-}
+// const mapDispatchToProps = (dispatch, ownProps) => {
+//     return {
+//         addEditor: (editorValue) => dispatch(addEditor(editorValue))
+//     }
+// }
 
-export default connect(null, mapDispatchToProps)(BlogEdit)
+export default BlogEdit

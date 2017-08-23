@@ -39,6 +39,20 @@ html {
 			border-right: 1px solid $borderColor;
 			box-shadow: 1px;
 			background-image: url('../static/images/bg.jpg');
+			.left-nav{
+				text-align: center;
+				color: white;
+				>img{
+					width: 300px;
+					height: 300px;
+					border-radius: 50%;
+
+				}
+				>*{
+					font-size: 24px;
+					text-align: center;
+				}
+			}
 		}
 
 		.content {

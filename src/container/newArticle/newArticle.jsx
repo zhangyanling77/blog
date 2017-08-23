@@ -1,37 +1,59 @@
 /*
- * @Author: wangcaowei 
- * @Date: 2017-08-18 16:58:14 
+ * @Author: wangcaowei
+ * @Date: 2017-08-18 16:58:14
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-08-22 00:14:05
+ * @Last Modified time: 2017-08-23 22:43:40
  */
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Row, Col, Input, Button} from 'antd'
 import BlogEdit from '../../components/edit/index.jsx';
-import {asyncActionTest} from '../../actions/action.js'
+import {publishArticle} from '../../actions/action.js'
 import './index.scss'
 class NewArticle extends Component {
     constructor(props) {
         super(props)
+        this.state = {
+            title: ""
+        }
     }
-    componentDidUpdate(prevProps, prevState) {}
+    titleChange(e) {
+        e.preventDefault();
+        this.setState({title: e.target.value});
+    }
     submitArticle(e) {
         e.preventDefault();
-        //测试
+        let data = {
+            acticleTitle: this.state.title,
+            articleContent: this
+                .refs
+                .editor
+                .state
+                .editor
+                .getValue()
+        }
         this
             .props
-            .testAsyncFetch()
-        //   this.props.history.push('/')
+            .publishArticle(data);
+        // this
+        //     .props
+        //     .history
+        //     .push('/')
     }
+
     render() {
         return (
             <div className="publish-article blog-flex blog-flex-row-y">
-                <Input size="large" placeholder="...标题"/>
-                <Input className="article-label" size="·large" placeholder="...标签"/>
+                <Input
+                    ref="articleTitle"
+                    size="large"
+                    placeholder="...标题"
+                    onChange={:: this.titleChange}/>
+                <Input className="article-label" size="large" placeholder="...标签"/>
                 <div className="edit-wrap ">
                     <Row className="text-body">
                         <Col className="text-body blog-edit" span={12}>
-                            <BlogEdit/>
+                            <BlogEdit ref="editor"/>
                         </Col>
                         <Col className="text-body" span={12}>
                             <div className="preview">{this.props.editorValue}</div>
@@ -50,7 +72,7 @@ const mapStateToProps = (state, ownProps) => {
 }
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        testAsyncFetch: () => dispatch(asyncActionTest())
+        publishArticle: (data) => dispatch(publishArticle(data))
     }
 }
-export default connect(mapStateToProps,mapDispatchToProps)(NewArticle);
+export default connect(mapStateToProps, mapDispatchToProps, null, {withRef: true})(NewArticle);

@@ -2,7 +2,7 @@
  * @Author: wangcaowei 
  * @Date: 2017-08-18 13:02:07 
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-08-18 15:39:01
+ * @Last Modified time: 2017-08-23 22:55:34
  */
 import React, {Component} from "react";
 import {Provider} from 'react-redux';
@@ -18,10 +18,7 @@ import 'antd/dist/antd.css'
 import './style/base.scss'
 import '../node_modules/simditor/styles/simditor.scss';
 const {Header, Footer, Sider, Content} = Layout;
-console.log(reducers)
 const store = createStore(reducers,applyMiddleware(thunkMiddleWare))
-
-let unsubscribe = store.subscribe(() => console.log(store.getState()))
 export default class App extends Component {
     render() {
         return (
@@ -38,7 +35,7 @@ export default class App extends Component {
 }
 const Index = () => (
     <Layout className="index-root">
-        <Sider className="sider" width="400">
+        <Sider className="sider blog-flex blog-flex-row-y blog-flex-x-center blog-flex-y-center" width="400">
             <LeftMenu/>
         </Sider>
         <Layout>
@@ -55,6 +52,10 @@ const Index = () => (
 )
 const LeftMenu = (props) => {
     return (
-        <Link to="/write-article">write</Link>
+        <div className="left-nav blog-flex blog-flex-row-y">
+            <img src="/src/static/images/user.JPG" alt="头像"></img>
+            <Link to="/article-list">文章列表</Link>
+            <Link to="/write-article">发表文章</Link>
+        </div>
     )
 }
