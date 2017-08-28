@@ -2,7 +2,7 @@
  * @Author: wangcaowei
  * @Date: 2017-08-18 16:58:14
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-08-23 22:43:40
+ * @Last Modified time: 2017-08-25 10:17:58
  */
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
@@ -35,10 +35,10 @@ class NewArticle extends Component {
         this
             .props
             .publishArticle(data);
-        // this
-        //     .props
-        //     .history
-        //     .push('/')
+        this
+            .props
+            .history
+            .push('/')
     }
 
     render() {

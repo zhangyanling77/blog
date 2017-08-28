@@ -2,11 +2,11 @@
  * @Author: wangcaowei
  * @Date: 2017-08-18 12:58:58
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-08-24 22:34:03
+ * @Last Modified time: 2017-08-25 10:18:02
  */
 import api from '../config/api';
 import type from './type';
-import {routerActions} from 'react-router-redux'
+import {push} from 'react-router-redux'
 require('fetch-stringify')
 const qs = require('qs')
 
@@ -34,7 +34,7 @@ export const publishArticle = (article) => {
       .then(res => res.json())
       .then(data => {
         console.log(data);
-        dispatch(routerActions.push('/'));
+        // dispatch(push('/'));
       })
       .catch(error => console.log(error));
   }

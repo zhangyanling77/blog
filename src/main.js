@@ -1,18 +1,18 @@
 /*
- * @Author: wangcaowei 
- * @Date: 2017-08-18 13:02:07 
+ * @Author: wangcaowei
+ * @Date: 2017-08-18 13:02:07
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-08-24 22:29:11
+ * @Last Modified time: 2017-08-25 10:27:55
  */
 import React, {Component} from "react";
 import {Provider} from 'react-redux';
-import {createStore,applyMiddleware} from 'redux';
+import {createStore, applyMiddleware} from 'redux';
 import thunkMiddleWare from 'redux-thunk'
 import reducers from './reducers/index.js';
 import {Layout} from 'antd';
 import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom'
 import createHistory from 'history/createBrowserHistory'
-import { ConnectedRouter, routerMiddleware } from 'react-router-redux'
+import {ConnectedRouter, routerMiddleware, push} from 'react-router-redux'
 import Rightcontent from "./components/page/content.jsx"
 import NewArticle from './container/newArticle//newArticle.jsx'
 import ArticleDetail from "./container/articleDetail/index.jsx"
@@ -21,19 +21,17 @@ import './style/base.scss'
 import '../node_modules/simditor/styles/simditor.scss';
 const {Header, Footer, Sider, Content} = Layout;
 const history = createHistory();
-const middleWare = routerMiddleware(history);//在redux 中使用router
-const store = createStore(reducers,applyMiddleware(middleWare,thunkMiddleWare))
+const middleWare = routerMiddleware(history); //在redux 中使用router
+const store = createStore(reducers, applyMiddleware(middleWare, thunkMiddleWare))
 export default class App extends Component {
     render() {
         return (
             <Provider store={store}>
                 <ConnectedRouter history={history}>
-                <Router>
                     <div className="root">
                         <Route exact path="/" component={Index}></Route>
                         <Route path="/write-article" component={NewArticle}></Route>
                     </div>
-                </Router>
                 </ConnectedRouter>
             </Provider>
         )
@@ -41,18 +39,20 @@ export default class App extends Component {
 }
 const Index = () => (
     <Layout className="index-root">
-        <Sider className="sider blog-flex blog-flex-row-y blog-flex-x-center blog-flex-y-center" width="400">
+        <Sider
+            className="sider blog-flex blog-flex-row-y blog-flex-x-center blog-flex-y-center"
+            width="400">
             <LeftMenu/>
         </Sider>
         <Layout>
-            <Router>
+            <ConnectedRouter history={history}>
                 <Content className="content">
                     <Switch>
                         <Route path='/article-detail' component={ArticleDetail}></Route>
                         <Route component={Rightcontent}></Route>
                     </Switch>
                 </Content>
-            </Router>
+            </ConnectedRouter>
         </Layout>
     </Layout>
 )
