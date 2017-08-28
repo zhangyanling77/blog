@@ -5,10 +5,7 @@ module.exports = function(sequelize, DataTypes) {
     articleid: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
-      references: {
-        model: 'articles',
-        key: 'id'
-      }
+      autoIncrement: true
     },
     tagid: {
       type: DataTypes.INTEGER(11),
