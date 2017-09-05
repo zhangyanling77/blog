@@ -2,14 +2,13 @@
  * @Author: wangcaowei
  * @Date: 2017-08-18 12:58:58
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-09-06 00:02:37
+ * @Last Modified time: 2017-09-06 00:48:26
  */
 import api from '../config/api';
 import type from './type';
 import {push} from 'react-router-redux'
 require('fetch-stringify')
 const qs = require('qs')
-
 export const addEditor = editorValue => {
   return {type: type.ADD_EDITOR, editorValue}
 }
@@ -38,5 +37,15 @@ export const publishArticle = (article) => {
         }
       })
       .catch(error => console.log(error));
+  }
+}
+export const getAllList = ()=>{
+  return (dispatch)=>{
+    fetch(api.getAllList).then(res=>res.json()).then(data=>{
+      dispatch({
+        type:type.GET_ALL_LIST,
+        articleList:data.list
+      })
+    })
   }
 }
