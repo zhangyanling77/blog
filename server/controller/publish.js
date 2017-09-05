@@ -2,10 +2,11 @@
  * @Author: wangcaowei
  * @Date: 2017-08-21 23:52:19
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-09-06 00:09:54
+ * @Last Modified time: 2017-09-06 00:32:52
  */
 const path = require('path');
 const user = require('./user');
+const utils = require('../controller/utils')
 const sequelize = require('../db/db');
 const articleMod = sequelize.import (path.join(__dirname, '../models/articles.js'));
 
@@ -19,8 +20,10 @@ exports.publish = async(ctx, next) => {
         }
     })
     await articleMod.create(Object.assign({},params,{createTime:new Date(),updateTime:new Date(),userid:1}))
+    const list = await utils.getAllArticle()
     ctx.body = {
         code:200,
-        message: '发表成功'
+        message: '发表成功',
+        list
     }
 }
