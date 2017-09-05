@@ -2,7 +2,7 @@
  * @Author: wangcaowei
  * @Date: 2017-08-18 16:58:14
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-08-25 10:17:58
+ * @Last Modified time: 2017-09-06 00:05:01
  */
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
@@ -24,8 +24,8 @@ class NewArticle extends Component {
     submitArticle(e) {
         e.preventDefault();
         let data = {
-            acticleTitle: this.state.title,
-            articleContent: this
+            title: this.state.title,
+            content: this
                 .refs
                 .editor
                 .state
@@ -35,10 +35,6 @@ class NewArticle extends Component {
         this
             .props
             .publishArticle(data);
-        this
-            .props
-            .history
-            .push('/')
     }
 
     render() {
