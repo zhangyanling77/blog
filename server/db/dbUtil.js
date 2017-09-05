@@ -2,7 +2,7 @@
  * @Author: wangcaowei
  * @Date: 2017-08-17 21:29:21
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-08-28 23:41:54
+ * @Last Modified time: 2017-09-06 00:06:29
  */
 /* jshint indent: 2 */
 const path = require('path')
@@ -53,4 +53,4 @@ const createModelsFormDb = async() => {
         console.log(error)
     }
 }
-createModelsFormDb();
+dbBackUp();

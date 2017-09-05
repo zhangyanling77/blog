@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.18, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.19, for osx10.12 (x86_64)
 --
 -- Host: localhost    Database: koatest
 -- ------------------------------------------------------
--- Server version	5.7.18-log
+-- Server version	5.7.19
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -26,13 +26,13 @@ CREATE TABLE `articles` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL COMMENT '标题',
   `content` longtext NOT NULL COMMENT '内容',
-  `createTime` datetime NOT NULL COMMENT '文章创建时间',
+  `createTime` datetime DEFAULT NULL COMMENT '文章创建时间',
   `updateTime` datetime NOT NULL COMMENT '最近更新时间',
   `userid` int(11) NOT NULL COMMENT '关联用户id',
   PRIMARY KEY (`id`),
   KEY `userid` (`userid`),
   CONSTRAINT `article_user_fk` FOREIGN KEY (`userid`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +41,7 @@ CREATE TABLE `articles` (
 
 LOCK TABLES `articles` WRITE;
 /*!40000 ALTER TABLE `articles` DISABLE KEYS */;
-INSERT INTO `articles` VALUES (1,'test','test','2017-08-21 21:54:02','2017-08-21 21:54:04',1),(2,'test1','test1','2017-08-21 22:42:05','2017-08-21 22:42:08',1);
+INSERT INTO `articles` VALUES (1,'test','test','2017-08-21 21:54:02','2017-08-21 21:54:04',1),(2,'test1','test1','2017-08-21 22:42:05','2017-08-21 22:42:08',1),(3,'123','123',NULL,'2017-09-05 14:18:37',1),(4,'123','123',NULL,'2017-09-05 14:44:14',1),(5,'123','123',NULL,'2017-09-05 14:44:45',1),(6,'123','123',NULL,'2017-09-05 14:50:34',1),(7,'123','123',NULL,'2017-09-05 14:51:19',1),(8,'123','123',NULL,'2017-09-05 14:53:42',1),(9,'123','123',NULL,'2017-09-05 14:59:06',1),(10,'123','123',NULL,'2017-09-05 15:00:05',1),(11,'123','123',NULL,'2017-09-05 15:02:15',1),(12,'123','123',NULL,'2017-09-05 15:05:58',1),(13,'123','123',NULL,'2017-09-05 15:46:00',1),(14,'test','<p>testtest</p>',NULL,'2017-09-05 16:05:14',1);
 /*!40000 ALTER TABLE `articles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -129,4 +129,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-08-25 11:30:49
+-- Dump completed on 2017-09-06  0:06:41
