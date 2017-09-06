@@ -2,20 +2,20 @@
  * @Author: wangcaowei
  * @Date: 2017-08-18 16:58:14
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-09-06 00:05:01
+ * @Last Modified time: 2017-09-07 01:33:06
  */
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {Row, Col, Input, Button} from 'antd'
+import {Row, Col, Input, Button, Select} from 'antd'
 import BlogEdit from '../../components/edit/index.jsx';
-import {publishArticle} from '../../actions/action.js'
+import {publishArticle, getTagList} from '../../actions/action.js'
 import './index.scss'
 class NewArticle extends Component {
     constructor(props) {
         super(props)
         this.state = {
             title: ""
-        }
+        };
     }
     titleChange(e) {
         e.preventDefault();
@@ -36,8 +36,26 @@ class NewArticle extends Component {
             .props
             .publishArticle(data);
     }
-
+    handleChange(val) {
+        console.log(val)
+    }
+    componentWillMount() {
+        this
+            .props
+            .getTagList();
+    }
+    componentDidUpdate(prevProps, prevState) {
+        console.log(prevProps,prevState)
+    }
+    
     render() {
+        let Option = Select.Option,
+         tagList = this
+            .props
+            .tagList
+            .map(tag => (
+                <Option key={tag.id}>{tag.tag}</Option>
+            ))
         return (
             <div className="publish-article blog-flex blog-flex-row-y">
                 <Input
@@ -45,7 +63,15 @@ class NewArticle extends Component {
                     size="large"
                     placeholder="...标题"
                     onChange={:: this.titleChange}/>
-                <Input className="article-label" size="large" placeholder="...标签"/>
+                <Select
+                    mode="multiple"
+                    style={{
+                    width: '100%'
+                }}
+                    placeholder="选择标签"
+                    onChange={:: this.handleChange}>
+                    {tagList}
+                </Select>
                 <div className="edit-wrap ">
                     <Row className="text-body">
                         <Col className="text-body blog-edit" span={12}>
@@ -64,11 +90,12 @@ class NewArticle extends Component {
     }
 }
 const mapStateToProps = (state, ownProps) => {
-    return {editorValue: state.publishArticle.editorValue}
+    return {editorValue: state.publishArticle.editorValue, tagList: state.publishArticle.tagList}
 }
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        publishArticle: (data) => dispatch(publishArticle(data))
+        publishArticle: (data) => dispatch(publishArticle(data)),
+        getTagList: () => dispatch(getTagList())
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps, null, {withRef: true})(NewArticle);

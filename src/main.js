@@ -2,7 +2,7 @@
  * @Author: wangcaowei
  * @Date: 2017-08-18 13:02:07
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-08-25 10:27:55
+ * @Last Modified time: 2017-09-06 23:02:53
  */
 import React, {Component} from "react";
 import {Provider} from 'react-redux';
@@ -23,6 +23,10 @@ const {Header, Footer, Sider, Content} = Layout;
 const history = createHistory();
 const middleWare = routerMiddleware(history); //在redux 中使用router
 const store = createStore(reducers, applyMiddleware(middleWare, thunkMiddleWare))
+store.subscribe(() =>
+  console.log(store.getState())
+)
+
 export default class App extends Component {
     render() {
         return (

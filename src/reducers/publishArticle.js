@@ -1,14 +1,18 @@
-const publishArticle = (state = {}, action) => {
+const publishArticle = (state = {
+  // editorValue: {},
+  tagList: []
+}, action) => {
   switch (action.type) {
-    case 'ADD_EDITOR':
-      /* 
+      /*
         永远都不应该去修改原来的state,
         应该返回一个新的state.
          MMP
        */
-      return Object.assign({},state,{editorValue:action.editorValue})
+    case 'GET_TAG_LIST':
+      return Object.assign({},state, {tagList: action.tagList});
     default:
       return state;
   }
 }
+console.log(publishArticle, 111)
 export default publishArticle;

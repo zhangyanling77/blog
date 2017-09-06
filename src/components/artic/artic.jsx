@@ -23,7 +23,7 @@ export default class Artic extends Component {
                         <Link to={`/article-detail/${this.props.article.id}`}>{this.props.article.title}</Link>
                     </p>
                     <div className='article-content'>
-                        <p className="blog-two-overflow-ellipsis">{this.props.article.content}</p>
+                        <p className="blog-two-overflow-ellipsis" dangerouslySetInnerHTML={{__html:this.props.article.content}}></p>
                         <div className="article-info blog-flex blog-flex-justify">
                             <span>2012-2-2</span>
                             <span>回复</span>

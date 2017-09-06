@@ -2,7 +2,7 @@
  * @Author: wangcaowei
  * @Date: 2017-08-18 12:58:58
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-09-06 00:48:26
+ * @Last Modified time: 2017-09-07 00:27:37
  */
 import api from '../config/api';
 import type from './type';
@@ -20,7 +20,6 @@ export const addEditor = editorValue => {
  * @returns
  */
 export const publishArticle = (article) => {
-  console.log(article, 11)
   return (dispatch) => {
     //开始请求
     fetch(api.publishArticle, {
@@ -34,18 +33,39 @@ export const publishArticle = (article) => {
       .then(data => {
         if(data.code==200){
           dispatch(push('/'));
+          getAllList();
         }
       })
-      .catch(error => console.log(error));
+      .catch(error => console.error(error));
   }
 }
+/**
+ * 
+ * 获取所有文章列表
+ * @returns 
+ */
 export const getAllList = ()=>{
   return (dispatch)=>{
     fetch(api.getAllList).then(res=>res.json()).then(data=>{
       dispatch({
         type:type.GET_ALL_LIST,
-        articleList:data.list
+        articleList:data.articleList
       })
-    })
+    }).catch(e=>console.error(e))
+  }
+}
+/**
+ * 
+ * 获取所有标签列表
+ * @returns 
+ */
+export const getTagList = ()=>{
+  return (dispatch)=>{
+    fetch(api.getTagList).then(res=>res.json()).then(data=>{
+      dispatch({
+        type:type.GET_TAG_LIST,
+        tagList:data.tagList
+      })
+    }).catch(e=>console.error(e))
   }
 }
