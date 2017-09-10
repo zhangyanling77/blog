@@ -19,6 +19,7 @@ export default class Artic extends Component {
         return (
             <div>
                 <div className="article">
+                    <p class="article-tag"></p>
                     <p className="article-title blog-overflow-ellipsis">
                         <Link to={`/article-detail/${this.props.article.id}`}>{this.props.article.title}</Link>
                     </p>

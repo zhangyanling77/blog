@@ -2,12 +2,10 @@
  * @Author: wangcaowei
  * @Date: 2017-08-17 21:29:21
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-09-06 00:06:29
+ * @Last Modified time: 2017-09-10 15:32:13
  */
-/* jshint indent: 2 */
 const path = require('path')
 const {databaseConf} = require('../config/config')
-const mysqlDump = require('mysqldump');
 const sequelize = require('./db');
 const childProcess = require('child_process')
 const fs = require('pn/fs');
@@ -53,4 +51,4 @@ const createModelsFormDb = async() => {
         console.log(error)
     }
 }
-dbBackUp();
+createModelsFormDb()
