@@ -2,7 +2,7 @@
  * @Author: wangcaowei
  * @Date: 2017-08-21 23:52:19
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-09-10 17:51:19
+ * @Last Modified time: 2017-09-11 10:13:25
  */
 const path = require('path');
 const user = require('./user');
@@ -34,7 +34,7 @@ exports.publish = async(ctx, next) => {
             id: params.tag
         }
     }).then(tagList => tagList.map(ele => ele.id))
-
+    console.log(tags)
     let tagData = params.tag.map(ele => ({ articleid: articleId, tagid: ele }));
     // 插入新的记录
     await articletagrelate.bulkCreate(tagData);
