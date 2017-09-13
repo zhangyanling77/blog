@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import { connect } from 'react-redux'
-import Article from "../artic/artic.jsx";
+import Article from "../artic/article.jsx";
 import { getAllList } from '../../actions/action.js'
 class Content extends Component {
     constructor(props) {

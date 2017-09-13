@@ -2,7 +2,7 @@
  * @Author: wangcaowei
  * @Date: 2017-08-18 16:58:14
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-09-10 16:51:31
+ * @Last Modified time: 2017-09-14 00:04:06
  */
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
@@ -10,13 +10,50 @@ import {Row, Col, Input, Button, Select} from 'antd'
 import BlogEdit from '../../components/edit/index.jsx';
 import {publishArticle, getTagList} from '../../actions/action.js'
 import './index.scss'
+const Remarkable = require('remarkable');
+const md = new Remarkable('full', {
+    html: false, // Enable HTML tags in source
+    xhtmlOut: false, // Use '/' to close single tags (<br />)
+    breaks: false, // Convert '\n' in paragraphs into <br>
+    langPrefix: 'language-', // CSS language prefix for fenced blocks
+    linkify: true, // autoconvert URL-like texts to links
+    linkTarget: '', // set target to open link in
+
+    // Enable some language-neutral replacements + quotes beautification
+    typographer: false,
+
+    // Double + single quotes replacement pairs, when typographer enabled, and
+    // smartquotes on. Set doubles to '«»' for Russian, '„“' for German.
+    quotes: '“”‘’',
+
+    // Highlighter function. Should return escaped HTML, or '' if input not changed
+    highlight: function (str, lang) {
+        if (lang && hljs.getLanguage(lang)) {
+            try {
+                return hljs
+                    .highlight(lang, str)
+                    .value;
+            } catch (__) {}
+        }
+
+        try {
+            return hljs
+                .highlightAuto(str)
+                .value;
+        } catch (__) {}
+
+        return ''; // use external default escaping
+    }
+});
 class NewArticle extends Component {
     constructor(props) {
         super(props)
         this.state = {
             title: "",
             button: true, //是否禁用按钮
-            selectTag: []
+            selectTag: [],
+            markdown: '',
+            html: ''
         };
     }
     titleChange(e) {
@@ -27,23 +64,17 @@ class NewArticle extends Component {
         e.preventDefault();
         let data = {
             title: this.state.title,
-            content: this
-                .refs
-                .editor
-                .state
-                .editor
-                .getValue(),
-            tag:this.state.selectTag
+            content: this.state.markdown,
+            tag: this.state.selectTag
         }
         this
             .props
             .publishArticle(data);
     }
     selectChange(val) {
-        console.log(val)
         this.setState({
             selectTag: val
-                .map(ele => this.props.tagList[ele-1])
+                .map(ele => this.props.tagList[ele - 1])
                 .map(ele => ele.id)
         });
     }
@@ -53,9 +84,14 @@ class NewArticle extends Component {
             .getTagList();
     }
     componentDidUpdate(prevProps, prevState) {
-        console.log(prevProps, prevState)
+        // console.log(prevProps, prevState)
     }
-
+    textareaChange(e) {
+        this.setState({
+            markdown: e.target.value,
+            html: md.render(e.target.value)
+        });
+    }
     render() {
         let Option = Select.Option,
             tagList = this
@@ -64,9 +100,9 @@ class NewArticle extends Component {
                 .map(tag => (
                     <Option key={tag.id}>{tag.tag}</Option>
                 )),
-        button = this.state.title && this.state.selectTag.length
-            ? false
-            : true;
+            button = this.state.title && this.state.selectTag.length
+                ? false
+                : true;
         return (
             <div className="publish-article blog-flex blog-flex-row-y">
                 <Input
@@ -86,10 +122,14 @@ class NewArticle extends Component {
                 <div className="edit-wrap ">
                     <Row className="text-body">
                         <Col className="text-body blog-edit" span={12}>
-                            <BlogEdit ref="editor"/>
+                            <BlogEdit ref="editor" onChange={:: this.textareaChange}/>
                         </Col>
                         <Col className="text-body" span={12}>
-                            <div className="preview">{this.props.editorValue}</div>
+                            <div
+                                className="preview"
+                                dangerouslySetInnerHTML={{
+                                __html: this.state.html
+                            }}></div>
                         </Col>
                     </Row>
                 </div>
@@ -105,7 +145,7 @@ class NewArticle extends Component {
     }
 }
 const mapStateToProps = (state, ownProps) => {
-    return {editorValue: state.publishArticle.editorValue, tagList: state.publishArticle.tagList}
+    return {tagList: state.publishArticle.tagList}
 }
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
