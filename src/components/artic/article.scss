@@ -13,6 +13,7 @@
 		font-size: $title-font-size;
 		border-bottom: 1px solid $borderColor;
 		letter-spacing:3px;
+		margin-bottom: 5px;
 		&:hover{
 			color: $title-active;
 		}
