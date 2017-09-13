@@ -1,24 +1,24 @@
-.publish-article{
+.publish-article {
     padding: 0 5%;
     padding-top: 5%;
     position: relative;
     height: 100%;
-    .article-label{
+    .article-label {
         margin: 15px 0;
     }
-    .publish-btn{
+    .publish-btn {
         position: absolute;
-        bottom:15px;
-        right:5%;
+        bottom: 15px;
+        right: 5%;
     }
-    .text-body{
+    .text-body {
         height: 100%;
     }
-    .edit-wrap{
+    .edit-wrap {
         min-height: 500px;
     }
-    .preview{
-        background-color: #ccc;
+    .preview {
+        // background-color: #ccc;
         height: 343px;
     }
 }

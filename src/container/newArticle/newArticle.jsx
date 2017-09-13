@@ -2,49 +2,16 @@
  * @Author: wangcaowei
  * @Date: 2017-08-18 16:58:14
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-09-14 00:04:06
+ * @Last Modified time: 2017-09-14 02:36:20
  */
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Row, Col, Input, Button, Select} from 'antd'
 import BlogEdit from '../../components/edit/index.jsx';
 import {publishArticle, getTagList} from '../../actions/action.js'
+import md from '../../config/markdownConfig.js'
 import './index.scss'
-const Remarkable = require('remarkable');
-const md = new Remarkable('full', {
-    html: false, // Enable HTML tags in source
-    xhtmlOut: false, // Use '/' to close single tags (<br />)
-    breaks: false, // Convert '\n' in paragraphs into <br>
-    langPrefix: 'language-', // CSS language prefix for fenced blocks
-    linkify: true, // autoconvert URL-like texts to links
-    linkTarget: '', // set target to open link in
 
-    // Enable some language-neutral replacements + quotes beautification
-    typographer: false,
-
-    // Double + single quotes replacement pairs, when typographer enabled, and
-    // smartquotes on. Set doubles to '«»' for Russian, '„“' for German.
-    quotes: '“”‘’',
-
-    // Highlighter function. Should return escaped HTML, or '' if input not changed
-    highlight: function (str, lang) {
-        if (lang && hljs.getLanguage(lang)) {
-            try {
-                return hljs
-                    .highlight(lang, str)
-                    .value;
-            } catch (__) {}
-        }
-
-        try {
-            return hljs
-                .highlightAuto(str)
-                .value;
-        } catch (__) {}
-
-        return ''; // use external default escaping
-    }
-});
 class NewArticle extends Component {
     constructor(props) {
         super(props)

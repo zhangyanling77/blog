@@ -2,13 +2,15 @@
  * @Author: wangcaowei
  * @Date: 2017-08-18 13:02:07
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-09-14 01:14:29
+ * @Last Modified time: 2017-09-14 03:45:30
  */
 import React, {Component} from "react";
 import {Provider} from 'react-redux';
+import { CSSTransitionGroup } from 'react-transition-group'
 import {createStore, applyMiddleware} from 'redux';
 import thunkMiddleWare from 'redux-thunk'
 import reducers from './reducers/index.js';
+import $ from 'jquery';
 import {Layout} from 'antd';
 import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom'
 import Rightcontent from "./components/page/content.jsx"
@@ -16,7 +18,7 @@ import NewArticle from './container/newArticle//newArticle.jsx'
 import ArticleDetail from "./container/articleDetail/index.jsx"
 import 'antd/dist/antd.css'
 import './style/base.scss'
-import '../node_modules/simditor/styles/simditor.scss';
+import './style/bootstrap/css/bootstrap.min.css'
 const {Header, Footer, Sider, Content} = Layout;
 // const history = createHistory(); const middleWare =
 // routerMiddleware(history); //在redux 中使用router
@@ -47,7 +49,7 @@ const Index = ({match}) => {
                 <LeftMenu/>
             </Sider>
             <Layout >
-                <Router history={history}>
+                <Router>
                     <Content className="content">
                         <Switch>
                             <Route path='/article-detail' component={ArticleDetail}></Route>
@@ -63,10 +65,10 @@ const LeftMenu = (props) => {
     return (
         <div className="left-nav blog-flex blog-flex-row-y">
             <img src="/src/static/images/user.JPG " alt=" 头像 "></img>
-            <Link to="/article - list ">
+            <Link to="/article-list">
                 文章列表
             </Link>
-            <Link to="/write - article ">
+            <Link to="/write-article">
                 发表文章
             </Link>
         </div>
