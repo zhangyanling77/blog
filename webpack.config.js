@@ -2,7 +2,7 @@
  * @Author: wangcaowei 
  * @Date: 2017-08-18 16:55:59 
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-09-14 00:22:39
+ * @Last Modified time: 2017-09-19 23:20:49
  */
 var path = require('path');
 var HtmlwebpackPlugin = require('html-webpack-plugin');
@@ -45,13 +45,14 @@ module.exports = {
         }]
     },
     devServer: {
-        historyApiFallback: true
+        historyApiFallback: true,
+        open: true
     },
     //添加我们的插件 会自动生成一个html文件
     plugins: [
             new HtmlwebpackPlugin({ title: 'test' }),
             new webpack.HotModuleReplacementPlugin(),
-            new OpenBrowserPlugin()
+            // new OpenBrowserPlugin()
         ]
         // devServer: {   historyApiFallback: true,   hot: true,   inline: true,
         // progress: true, },

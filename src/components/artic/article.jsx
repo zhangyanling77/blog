@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { Tag } from "antd";
+import React, {Component} from "react";
+import {Link} from "react-router-dom";
+import {Tag} from "antd";
 import "./article.scss";
 import "../../style/base.scss";
 import md from '../../config/markdownConfig.js'
@@ -16,16 +16,26 @@ export default class Article extends Component {
     // this.previousLocation = this.props.location  }
   }
   render() {
-    let tags = this.props.article.tags.map(tag => (
-      <Tag color="blue" key={tag.id}>
-        <a href="#">{tag.tag}</a>
-      </Tag>
-    ));
+    let tags = this
+      .props
+      .article
+      .tags
+      .map(tag => (
+        <Tag color="blue" key={tag.id}>
+          <a href="#">{tag.tag}</a>
+        </Tag>
+      ));
     return (
       <div>
         <div className="article">
           <p className="article-title blog-overflow-ellipsis">
-            <Link to={`/article-detail/${this.props.article.id}`}>
+            <Link
+              to={{
+              pathname: `/article-detail`,
+              state: {
+                article: this.props.article
+              }
+            }}>
               {this.props.article.title}
             </Link>
           </p>
@@ -33,10 +43,13 @@ export default class Article extends Component {
           <div className="article-content">
             <p
               className="blog-two-overflow-ellipsis"
-              dangerouslySetInnerHTML={{ __html: md.render(this.props.article.content) }}
-            />
+              dangerouslySetInnerHTML={{
+              __html: md.render(this.props.article.content)
+            }}/>
             <div className="article-info blog-flex blog-flex-justify">
-              <span>{new Date(this.props.article.createTime).toLocaleDateString().replace(/\//g,'-')}</span>
+              <span>{new Date(this.props.article.createTime)
+                  .toLocaleDateString()
+                  .replace(/\//g, '-')}</span>
             </div>
           </div>
         </div>

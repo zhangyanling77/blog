@@ -2,7 +2,7 @@
  * @Author: wangcaowei
  * @Date: 2017-08-18 13:02:07
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-09-14 03:45:30
+ * @Last Modified time: 2017-09-19 21:39:07
  */
 import React, {Component} from "react";
 import {Provider} from 'react-redux';
@@ -48,7 +48,7 @@ const Index = ({match}) => {
                 width="400">
                 <LeftMenu/>
             </Sider>
-            <Layout >
+            <Layout className="right blog-flex blog-flex-y-center">
                 <Router>
                     <Content className="content">
                         <Switch>
