@@ -1,14 +1,14 @@
 import React, {Component} from "react";
 import { connect } from 'react-redux'
 import Article from "../artic/article.jsx";
-import { getAllList } from '../../actions/action.js'
+import { getArticleList } from '../../actions/action.js'
 class Content extends Component {
     constructor(props) {
         super(props)
     }
     
     componentWillMount() {
-        this.props.getAllList();
+        this.props.getArticleList();
     }
     
     render() {
@@ -30,8 +30,8 @@ const mapStateToProps = (state, ownProps) => {
 }
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        getAllList: () => {
-            dispatch(getAllList())
+        getArticleList: () => {
+            dispatch(getArticleList())
         }
     }
 }

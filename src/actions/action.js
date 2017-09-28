@@ -2,7 +2,7 @@
  * @Author: wangcaowei
  * @Date: 2017-08-18 12:58:58
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-09-14 01:16:34
+ * @Last Modified time: 2017-09-29 00:32:27
  */
 import api from '../config/api';
 import type from './type';
@@ -43,9 +43,16 @@ export const publishArticle = (article) => {
      * 获取所有文章列表
      * @returns 
      */
-export const getAllList = () => {
+export const getArticleList = (tagId) => {
+        console.log(tagId)
         return (dispatch) => {
-            fetch(api.getAllList).then(res => res.json()).then(data => {
+            fetch(api.getArticleList, {
+                method: 'post',
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+                },
+                body: tagId && qs.stringify({ tagId })
+            }).then(res => res.json()).then(data => {
                 dispatch({
                     type: type.GET_ALL_LIST,
                     articleList: data.articleList

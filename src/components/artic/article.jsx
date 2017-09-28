@@ -1,19 +1,21 @@
+/*
+ * @Author: wangcaowei 
+ * @Date: 2017-09-10 21:20:10 
+ * @Last Modified by: wangcaowei
+ * @Last Modified time: 2017-09-29 00:36:30
+ */
+
 import React, {Component} from "react";
 import {Link} from "react-router-dom";
 import {Tag} from "antd";
+import {getArticleList} from '../../actions/action.js'
+import {connect} from 'react-redux'
 import "./article.scss";
 import "../../style/base.scss";
 import md from '../../config/markdownConfig.js'
-export default class Article extends Component {
+class Article extends Component {
   constructor(props) {
     super(props);
-    this.previousLocation = this.props.location;
-  }
-  componentWillUpdate(nextProps) {
-    //  const { location } = this.props  // 如果 props.location 不是 modal 的话，就把
-    // this.props.location  // 赋值给 previousLocation。  if ( nextProps.history.action
-    // !== 'POP' &&    (!location.state || !location.state.modal)  ) {
-    // this.previousLocation = this.props.location  }
   }
   render() {
     let tags = this
@@ -21,8 +23,8 @@ export default class Article extends Component {
       .article
       .tags
       .map(tag => (
-        <Tag color="blue" key={tag.id}>
-          <a href="#">{tag.tag}</a>
+        <Tag color="blue" key={tag.id} onClick={()=>this.props.getArticleList(tag.id)}>
+          {tag.tag}
         </Tag>
       ));
     return (
@@ -57,3 +59,11 @@ export default class Article extends Component {
     );
   }
 }
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    getArticleList: (tagId) => {
+      dispatch(getArticleList(tagId))
+    }
+  }
+}
+export default connect(null, mapDispatchToProps)(Article)

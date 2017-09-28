@@ -2,7 +2,7 @@
  * @Author: wangcaowei 
  * @Date: 2017-08-18 16:55:59 
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-09-19 23:20:49
+ * @Last Modified time: 2017-09-29 00:37:57
  */
 var path = require('path');
 var HtmlwebpackPlugin = require('html-webpack-plugin');
@@ -11,7 +11,7 @@ var webpack = require('webpack')
     // var proxy = require('http-proxy-middleware') 定义了一些文件夹的路径
 var ROOT_PATH = path.resolve(__dirname);
 var APP_PATH = path.resolve(ROOT_PATH, './src');
-var BUILD_PATH = path.resolve(ROOT_PATH, './build');
+var BUILD_PATH = path.resolve(ROOT_PATH, './dist');
 
 module.exports = {
     //项目的文件夹 可以直接用文件夹名称 默认会找index.js 也可以确定是哪个文件名字

@@ -2,10 +2,10 @@
  * @Author: wangcaowei
  * @Date: 2017-08-17 21:29:21
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-09-11 09:41:49
+ * @Last Modified time: 2017-09-19 23:59:30
  */
 const path = require('path')
-const {databaseConf} = require('../config/config')
+const { databaseConf } = require('../config/config')
 const sequelize = require('./db');
 const childProcess = require('child_process')
 const fs = require('pn/fs');
@@ -20,7 +20,7 @@ const fs = require('pn/fs');
 //         console.log('backup database error');
 //     }
 // )
-const dbBackUp = ()=>{
+const dbBackUp = () => {
     try {
         childProcess.exec(`mysqldump -u${databaseConf.user} -p${databaseConf.password} ${databaseConf.database} > ${__dirname}/data.sql`)
     } catch (error) {
@@ -45,10 +45,10 @@ const execSqlFile = async() => {
  */
 const createModelsFormDb = async() => {
     try {
-        let modePath = path.join(__dirname,'../models')
+        let modePath = path.join(__dirname, '../models')
         childProcess.exec(`sequelize-auto -o ${modePath} -d ${databaseConf.database} -h ${databaseConf.host} -u ${databaseConf.user} -p 3306 -x ${databaseConf.password} -e mysql`);
     } catch (error) {
         console.log(error)
     }
 }
-execSqlFile()
+createModelsFormDb()
