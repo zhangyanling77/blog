@@ -2,13 +2,11 @@
  * @Author: wangcaowei 
  * @Date: 2017-08-18 16:55:59 
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-09-29 00:37:57
+ * @Last Modified time: 2017-09-29 00:38:57
  */
 var path = require('path');
 var HtmlwebpackPlugin = require('html-webpack-plugin');
-var OpenBrowserPlugin = require('open-browser-webpack-plugin');
 var webpack = require('webpack')
-    // var proxy = require('http-proxy-middleware') 定义了一些文件夹的路径
 var ROOT_PATH = path.resolve(__dirname);
 var APP_PATH = path.resolve(ROOT_PATH, './src');
 var BUILD_PATH = path.resolve(ROOT_PATH, './dist');
@@ -50,10 +48,7 @@ module.exports = {
     },
     //添加我们的插件 会自动生成一个html文件
     plugins: [
-            new HtmlwebpackPlugin({ title: 'test' }),
-            new webpack.HotModuleReplacementPlugin(),
-            // new OpenBrowserPlugin()
-        ]
-        // devServer: {   historyApiFallback: true,   hot: true,   inline: true,
-        // progress: true, },
+        new HtmlwebpackPlugin({ title: 'test' }),
+        new webpack.HotModuleReplacementPlugin(),
+    ]
 };

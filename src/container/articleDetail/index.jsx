@@ -2,15 +2,15 @@ import React from 'react';
 import {connect} from 'react-redux'
 import md from '../../config/markdownConfig.js'
 import {Tag} from "antd";
+import {getArticleList} from '../../actions/action.js'
 import './index.scss'
 const ArticleDetail = (props) => {
   let data = props.location.state.article;
-  console.log(data)
   let tags = data
     .tags
     .map(tag => (
-      <Tag color="blue" key={tag.id}>
-        <a href="#">{tag.tag}</a>
+      <Tag color="blue" key={tag.id} onClick={()=>this.props.getArticleList(tag.id)}>
+        {tag.tag}
       </Tag>
     ));
   return (
@@ -34,4 +34,11 @@ const ArticleDetail = (props) => {
 const mapStateToProps = (state, ownProps) => {
   return {editorValue: state.publishArticle.editorValue}
 }
-export default connect(mapStateToProps)(ArticleDetail);
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    getArticleList: (tagId) => {
+      dispatch(getArticleList(tagId))
+    }
+  }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(ArticleDetail);

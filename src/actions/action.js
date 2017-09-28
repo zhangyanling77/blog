@@ -2,7 +2,7 @@
  * @Author: wangcaowei
  * @Date: 2017-08-18 12:58:58
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-09-29 00:32:27
+ * @Last Modified time: 2017-09-29 00:44:23
  */
 import api from '../config/api';
 import type from './type';
@@ -44,7 +44,6 @@ export const publishArticle = (article) => {
      * @returns 
      */
 export const getArticleList = (tagId) => {
-        console.log(tagId)
         return (dispatch) => {
             fetch(api.getArticleList, {
                 method: 'post',
