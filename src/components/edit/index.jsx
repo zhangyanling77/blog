@@ -2,7 +2,7 @@
  * @Author: wangcaowei
  * @Date: 2017-08-15 19:58:12
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-09-14 01:19:01
+ * @Last Modified time: 2017-10-09 23:25:56
  */
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
@@ -15,9 +15,7 @@ class BlogEdit extends Component {
     }
     render() {
         return (
-            <div>
-                <TextArea rows={20} onChange={:: this.props.onChange}/>
-            </div>
+            <TextArea rows={20} onChange={:: this.props.onChange}/>
         );
     }
 }
