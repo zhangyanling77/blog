@@ -6,7 +6,7 @@
  */
 import React, {Component} from "react";
 import {Provider} from 'react-redux';
-import { CSSTransitionGroup } from 'react-transition-group'
+// import { CSSTransitionGroup } from 'react-transition-group'
 import {createStore, applyMiddleware} from 'redux';
 import thunkMiddleWare from 'redux-thunk'
 import reducers from './reducers/index.js';
