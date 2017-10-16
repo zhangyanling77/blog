@@ -2,7 +2,7 @@
  * @Author: wangcaowei
  * @Date: 2017-08-18 16:58:14
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-09-14 02:36:20
+ * @Last Modified time: 2017-10-09 23:32:23
  */
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
@@ -88,10 +88,10 @@ class NewArticle extends Component {
                 </Select>
                 <div className="edit-wrap ">
                     <Row className="text-body">
-                        <Col className="text-body blog-edit" span={12}>
+                        <Col span={12}>
                             <BlogEdit ref="editor" onChange={:: this.textareaChange}/>
                         </Col>
-                        <Col className="text-body" span={12}>
+                        <Col span={12}>
                             <div
                                 className="preview"
                                 dangerouslySetInnerHTML={{

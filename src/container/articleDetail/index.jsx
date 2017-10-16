@@ -9,7 +9,7 @@ const ArticleDetail = (props) => {
   let tags = data
     .tags
     .map(tag => (
-      <Tag color="blue" key={tag.id} onClick={()=>this.props.getArticleList(tag.id)}>
+      <Tag color="blue" key={tag.id} onClick={()=>props.getArticleList(tag.id)}>
         {tag.tag}
       </Tag>
     ));

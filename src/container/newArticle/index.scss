@@ -15,10 +15,21 @@
         height: 100%;
     }
     .edit-wrap {
-        min-height: 500px;
-    }
-    .preview {
-        // background-color: #ccc;
-        height: 343px;
+        height: 500px;
+        .text-body {
+            height: 100%;
+            >div {
+                height: 100%;
+                .preview {
+                    // background-color: #ccc;
+                    padding-left: 25px;
+                    height: 100%;
+                    overflow: auto;
+                }
+                textarea {
+                    height: 100%;
+                }
+            }
+        }
     }
 }

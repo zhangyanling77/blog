@@ -2,7 +2,7 @@
  * @Author: wangcaowei 
  * @Date: 2017-08-18 16:55:59 
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-09-29 00:38:57
+ * @Last Modified time: 2017-09-29 21:16:35
  */
 var path = require('path');
 var HtmlwebpackPlugin = require('html-webpack-plugin');
@@ -28,8 +28,8 @@ module.exports = {
             loaders: 'style-loader!css-loader!sass-loader'
         }, {
             test: /\.(png|jpg|gif)$/,
-            // loader: 'url-loader?limit=8192'
-            loader: 'file-loader',
+            loader: 'url-loader?limit=8192',
+            // loader: 'file-loader',
             options: {
                 name: '[name].[ext]?[hash]'
             }
