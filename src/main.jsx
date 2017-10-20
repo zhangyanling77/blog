@@ -2,7 +2,7 @@
  * @Author: wangcaowei
  * @Date: 2017-08-18 13:02:07
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-09-29 21:23:55
+ * @Last Modified time: 2017-10-19 17:01:16
  */
 import React, {Component} from "react";
 import {Provider} from 'react-redux';
@@ -64,7 +64,7 @@ const Index = ({match}) => {
 const LeftMenu = (props) => {
     return (
         <div className="left-nav blog-flex blog-flex-row-y">
-            <img src="/src/static/images/user.JPG " alt=" 头像 "></img>
+            <img src={require('./static/images/user.jpg')} alt=" 头像 "></img>
             <Link to="/article-list">
                 文章列表
             </Link>

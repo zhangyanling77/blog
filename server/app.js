@@ -2,7 +2,7 @@
  * @Author: wangcaowei
  * @Date: 2017-08-18 16:56:49
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-10-16 17:27:47
+ * @Last Modified time: 2017-10-19 11:31:52
  */
 const path = require('path');
 const koa = require('koa');
@@ -36,6 +36,23 @@ app.use(session({
 app.use(cors());
 app.use(publish.routes());
 app.use(article.routes());
+var a = {};
+Object.defineProperty(a, "test", {
+  configurable:false,
+  writable: true,
+  enumerable : true,  
+  value:11111
+});
+console.log(a);
+// var o = {}; // 创建一个新对象
+
+// // 在对象中添加一个属性与数据描述符的示例
+// Object.defineProperty(o, "a", {
+//   value : 37,
+//   writable : true,
+//   enumerable : true,
+//   configurable : true
+// });
 app.listen(80, () => {
     console.log('server start at 80');
 });
