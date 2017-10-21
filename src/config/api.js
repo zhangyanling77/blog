@@ -2,9 +2,9 @@
  * @Author: wangcaowei 
  * @Date: 2017-08-18 16:54:56 
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-10-16 17:29:29
+ * @Last Modified time: 2017-10-22 00:18:23
  */
-const source = "http://localhost:80";
+const source = "http://localhost:8081";
 
 export default {
     publishArticle: source + "/publishArticle", //发表
