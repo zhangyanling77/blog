@@ -11,6 +11,7 @@ import {createStore, applyMiddleware} from 'redux';
 import thunkMiddleWare from 'redux-thunk'
 import reducers from './reducers/index.js';
 import $ from 'jquery';
+import './style/bootstrap/css/bootstrap.min.css'
 import {Layout} from 'antd';
 import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom'
 import Rightcontent from "./components/page/content.jsx"
@@ -18,7 +19,6 @@ import NewArticle from './container/newArticle//newArticle.jsx'
 import ArticleDetail from "./container/articleDetail/index.jsx"
 import 'antd/dist/antd.css'
 import './style/base.scss'
-import './style/bootstrap/css/bootstrap.min.css'
 const {Header, Footer, Sider, Content} = Layout;
 // const history = createHistory(); const middleWare =
 // routerMiddleware(history); //在redux 中使用router
@@ -64,7 +64,7 @@ const Index = ({match}) => {
 const LeftMenu = (props) => {
     return (
         <div className="left-nav blog-flex blog-flex-row-y">
-            <img src={require('./static/images/user.jpg')} alt=" 头像 "></img>
+            <img src={require('./static/userImages/defaultPic.jpg')} alt=" 头像 "></img>
             <Link to="/article-list">
                 文章列表
             </Link>
