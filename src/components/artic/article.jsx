@@ -2,7 +2,7 @@
  * @Author: wangcaowei 
  * @Date: 2017-09-10 21:20:10 
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-09-29 00:36:30
+ * @Last Modified time: 2017-10-27 10:17:57
  */
 
 import React, {Component} from "react";
@@ -43,7 +43,7 @@ class Article extends Component {
           </p>
           <div className="article-tag">{tags}</div>
           <div className="article-content">
-            <p
+            <div
               className="blog-two-overflow-ellipsis"
               dangerouslySetInnerHTML={{
               __html: md.render(this.props.article.content)

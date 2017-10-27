@@ -39,6 +39,10 @@ html {
             border-right: 1px solid $borderColor;
             box-shadow: 1px;
             background-image: url('../static/images/bg.jpg');
+            background-size: cover;
+            .ant-layout-sider-children{
+                display: flex;
+            }
             .left-nav {
                 text-align: center;
                 color: white;
@@ -46,10 +50,16 @@ html {
                     width: 300px;
                     height: 300px;
                     border-radius: 50%;
+                    object-fit: cover;
                 }
                 >* {
                     font-size: 24px;
                     text-align: center;
+                }
+                >a{
+                    margin: 10px 0;
+                    color:white;
+                    letter-spacing: 8px;
                 }
             }
         }
@@ -73,10 +83,11 @@ html {
 
 // 显示两行文字，溢出隐藏
 .blog-two-overflow-ellipsis {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    word-break: break-all;
-    overflow: hidden;
-    white-space: normal;
+    display: -webkit-box;  
+    display: -moz-box;  
+    overflow: hidden;  
+    text-overflow: ellipsis;  
+    word-break: break-all;  
+    -webkit-box-orient: vertical;  
+    -webkit-line-clamp:3;
 }

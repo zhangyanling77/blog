@@ -2,7 +2,7 @@
  * @Author: wangcaowei
  * @Date: 2017-08-18 13:02:07
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-10-26 17:53:51
+ * @Last Modified time: 2017-10-27 14:10:07
  */
 import React, {Component} from "react";
 import {Provider} from 'react-redux';
@@ -45,7 +45,7 @@ const Index = ({match}) => {
         <Layout className="index-root">
             <Sider
                 className="sider blog-flex blog-flex-row-y blog-flex-x-center blog-flex-y-center "
-                width="400">
+                width="650">
                 <LeftMenu/>
             </Sider>
             <Layout className="right blog-flex blog-flex-y-center">
@@ -63,11 +63,8 @@ const Index = ({match}) => {
 }
 const LeftMenu = (props) => {
     return (
-        <div className="left-nav blog-flex blog-flex-row-y">
+        <div className="left-nav blog-flex blog-flex-row-y blog-flex-x-center">
             <img src={require('./static/userImages/defaultPic.jpg')} alt=" 头像 "></img>
-            <Link to="/article-list">
-                文章列表
-            </Link>
             <Link to="/write-article">
                 发表文章
             </Link>
