@@ -25,6 +25,18 @@
                     padding-left: 25px;
                     height: 100%;
                     overflow: auto;
+                    background-color: #eee;
+                    // ::-webkit-scrollbar  
+                    // {  
+                    //     width: 16px;  
+                    //     height: 16px;  
+                    //     background-color: #fff;  
+                    // } 
+                    // /*定义滑块 内阴影+圆角*/  
+                    // ::-webkit-scrollbar-thumb  
+                    // {  
+                    //     background-color: #eee;  
+                    // } 
                 }
                 textarea {
                     height: 100%;

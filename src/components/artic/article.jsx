@@ -2,56 +2,67 @@
  * @Author: wangcaowei 
  * @Date: 2017-09-10 21:20:10 
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-10-27 10:17:57
+ * @Last Modified time: 2017-10-30 15:57:37
  */
 
-import React, {Component} from "react";
-import {Link} from "react-router-dom";
-import {Tag} from "antd";
-import {getArticleList} from '../../actions/action.js'
-import {connect} from 'react-redux'
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import { Tag } from "antd";
+import { getArticleList } from "../../actions/action.js";
+import { connect } from "react-redux";
+const clamp = require("clamp-js-main");
+import md from "../../config/markdownConfig.js";
 import "./article.scss";
 import "../../style/base.scss";
-import md from '../../config/markdownConfig.js'
+
 class Article extends Component {
   constructor(props) {
     super(props);
   }
+  componentDidMount() {
+    // 多行文本溢出隐藏
+    const domNode = document.querySelector(".article-content").firstChild;
+    clamp(domNode, { clamp: 2 });
+  }
+
   render() {
-    let tags = this
-      .props
-      .article
-      .tags
-      .map(tag => (
-        <Tag color="blue" key={tag.id} onClick={()=>this.props.getArticleList(tag.id)}>
-          {tag.tag}
-        </Tag>
-      ));
+    let tags = this.props.article.tags.map(tag => (
+      <Tag
+        color="blue"
+        key={tag.id}
+        onClick={() => this.props.getArticleList(tag.id)}
+      >
+        {tag.tag}
+      </Tag>
+    ));
     return (
       <div>
         <div className="article">
           <p className="article-title blog-overflow-ellipsis">
             <Link
               to={{
-              pathname: `/article-detail`,
-              state: {
-                article: this.props.article
-              }
-            }}>
+                pathname: `/article-detail`,
+                state: {
+                  article: this.props.article
+                }
+              }}
+            >
               {this.props.article.title}
             </Link>
           </p>
           <div className="article-tag">{tags}</div>
           <div className="article-content">
             <div
-              className="blog-two-overflow-ellipsis"
               dangerouslySetInnerHTML={{
-              __html: md.render(this.props.article.content)
-            }}/>
+                __html: md.render(this.props.article.content)
+              }}
+            />
             <div className="article-info blog-flex blog-flex-justify">
-              <span>{new Date(this.props.article.createTime)
+              <span>
+                {new Date(this.props.article.createTime)
                   .toLocaleDateString()
-                  .replace(/\//g, '-')}</span>
+                  .replace(/\//g, "-")}
+              </span>
             </div>
           </div>
         </div>
@@ -61,9 +72,9 @@ class Article extends Component {
 }
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    getArticleList: (tagId) => {
-      dispatch(getArticleList(tagId))
+    getArticleList: tagId => {
+      dispatch(getArticleList(tagId));
     }
-  }
-}
-export default connect(null, mapDispatchToProps)(Article)
+  };
+};
+export default connect(null, mapDispatchToProps)(Article);

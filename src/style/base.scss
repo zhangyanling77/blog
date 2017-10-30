@@ -74,6 +74,17 @@ html {
     }
 }
 
+::-webkit-scrollbar-track 
+{  
+    // width: 16px;  
+    // height: 16px;  
+    background-color: #fff;  
+} 
+// /*定义滑块 内阴影+圆角*/  
+// ::-webkit-scrollbar-thumb  
+// {  
+//     background-color: #eee;  
+// }  
 // 省略显示省略号
 .blog-overflow-ellipsis {
     overflow: hidden;
