@@ -2,7 +2,7 @@
  * @Author: wangcaowei
  * @Date: 2017-08-18 16:58:14
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-10-26 18:13:09
+ * @Last Modified time: 2017-10-30 18:17:14
  */
 import React, { Component } from "react";
 import { connect } from "react-redux";
@@ -11,6 +11,8 @@ import BlogEdit from "../../components/edit/index.jsx";
 import { publishArticle, getTagList } from "../../actions/action.js";
 import md from "../../config/markdownConfig.js";
 import "./index.scss";
+
+const { TextArea } = Input;
 
 class NewArticle extends Component {
   constructor(props) {
@@ -64,7 +66,7 @@ class NewArticle extends Component {
         <Input
           ref="articleTitle"
           placeholder="...标题"
-          style={{marginBottom:10}}
+          style={{ marginBottom: 10 }}
           size="large"
           onChange={::this.titleChange}
         />
@@ -77,6 +79,7 @@ class NewArticle extends Component {
         >
           {tagList}
         </Select>
+        <TextArea placeholder="文章的摘要.." style={{ marginBottom: 10 }} />
         <div className="edit-wrap ">
           <Row className="text-body">
             <Col span={12}>
