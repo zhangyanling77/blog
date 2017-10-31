@@ -2,7 +2,7 @@
  * @Author: wangcaowei
  * @Date: 2017-08-17 21:29:21
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-09-19 23:59:30
+ * @Last Modified time: 2017-10-31 10:26:59
  */
 const path = require('path')
 const { databaseConf } = require('../config/config')
@@ -22,7 +22,7 @@ const fs = require('pn/fs');
 // )
 const dbBackUp = () => {
     try {
-        childProcess.exec(`mysqldump -u${databaseConf.user} -p${databaseConf.password} ${databaseConf.database} > ${__dirname}/data.sql`)
+        childProcess.execSync(`mysqldump -u${databaseConf.user} -p${databaseConf.password} ${databaseConf.database} > ${__dirname}/data.sql`)
     } catch (error) {
         console.log(error)
     }
@@ -46,7 +46,7 @@ const execSqlFile = async() => {
 const createModelsFormDb = async() => {
     try {
         let modePath = path.join(__dirname, '../models')
-        childProcess.exec(`sequelize-auto -o ${modePath} -d ${databaseConf.database} -h ${databaseConf.host} -u ${databaseConf.user} -p 3306 -x ${databaseConf.password} -e mysql`);
+        childProcess.execSync(`sequelize-auto -o ${modePath} -d ${databaseConf.database} -h ${databaseConf.host} -u ${databaseConf.user} -p 3306 -x ${databaseConf.password} -e mysql`);
     } catch (error) {
         console.log(error)
     }

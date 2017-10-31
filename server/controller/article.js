@@ -2,7 +2,7 @@
  * @Author: wangcaowei 
  * @Date: 2017-09-06 23:19:30 
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-09-29 00:11:05
+ * @Last Modified time: 2017-10-31 18:22:07
  */
 const path = require('path');
 // const user = require('./user');
@@ -13,6 +13,10 @@ const articleMod = sequelize.import(
 );
 const tagsMod = sequelize.import(path.join(__dirname, "../models/tags.js"));
 exports.getArticleList = async(ctx, next) => {
+    /**
+     *  @param [id:根据文章id查找内容，tagId:根据tagId查找对应的列表, 没有参数则返回所有的文章列表]
+     * @returns articleList
+     */
     let tagId = ctx.request.body.tagId;
     const articleList = await utils.getArticleList(tagId);
     ctx.body = {

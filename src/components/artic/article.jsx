@@ -2,7 +2,7 @@
  * @Author: wangcaowei 
  * @Date: 2017-09-10 21:20:10 
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-10-30 15:57:37
+ * @Last Modified time: 2017-10-31 17:50:59
  */
 
 import React, { Component } from "react";
@@ -27,11 +27,7 @@ class Article extends Component {
 
   render() {
     let tags = this.props.article.tags.map(tag => (
-      <Tag
-        color="blue"
-        key={tag.id}
-        onClick={() => this.props.getArticleList(tag.id)}
-      >
+      <Tag color="blue" key={tag.id} onClick={() => this.props.getArticleList(tag.id)}>
         {tag.tag}
       </Tag>
     ));
@@ -53,16 +49,13 @@ class Article extends Component {
           <div className="article-tag">{tags}</div>
           <div className="article-content">
             <div
+              className="blog-overflow-ellipsis"
               dangerouslySetInnerHTML={{
-                __html: md.render(this.props.article.content)
+                __html: md.render(this.props.article.abstract)
               }}
             />
             <div className="article-info blog-flex blog-flex-justify">
-              <span>
-                {new Date(this.props.article.createTime)
-                  .toLocaleDateString()
-                  .replace(/\//g, "-")}
-              </span>
+              <span>{new Date(this.props.article.createTime).toLocaleDateString().replace(/\//g, "-")}</span>
             </div>
           </div>
         </div>

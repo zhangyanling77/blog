@@ -1,47 +1,35 @@
 .publish-article {
-    padding: 0 5%;
-    padding-top: 2%;
-    position: relative;
+  padding: 0 5%;
+  padding-top: 2%;
+  position: relative;
+  height: 100%;
+  .article-label {
+    margin: 15px 0;
+  }
+  .publish-btn {
+    position: absolute;
+    bottom: 15px;
+    right: 5%;
+  }
+  .text-body {
     height: 100%;
-    .article-label {
-        margin: 15px 0;
-    }
-    .publish-btn {
-        position: absolute;
-        bottom: 15px;
-        right: 5%;
-    }
+  }
+  .edit-wrap {
+    height: 500px;
     .text-body {
+      height: 100%;
+      > div {
         height: 100%;
-    }
-    .edit-wrap {
-        height: 500px;
-        .text-body {
-            height: 100%;
-            >div {
-                height: 100%;
-                .preview {
-                    // background-color: #ccc;
-                    padding-left: 25px;
-                    height: 100%;
-                    overflow: auto;
-                    background-color: #eee;
-                    // ::-webkit-scrollbar  
-                    // {  
-                    //     width: 16px;  
-                    //     height: 16px;  
-                    //     background-color: #fff;  
-                    // } 
-                    // /*定义滑块 内阴影+圆角*/  
-                    // ::-webkit-scrollbar-thumb  
-                    // {  
-                    //     background-color: #eee;  
-                    // } 
-                }
-                textarea {
-                    height: 100%;
-                }
-            }
+        .preview {
+          padding-left: 25px;
+          height: 100%;
+          overflow: auto;
+          background-color: #eee;
         }
+        textarea {
+          height: 100%;
+        }
+      }
     }
+  }
 }

@@ -31,6 +31,11 @@ module.exports = function(sequelize, DataTypes) {
         model: 'users',
         key: 'id'
       }
+    },
+    abstract: {
+      type: DataTypes.STRING(255),
+      allowNull: false,
+      defaultValue: ''
     }
   }, {
     tableName: 'articles'

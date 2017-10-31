@@ -2,12 +2,6 @@
 
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('articletagrelate', {
-    id: {
-      type: DataTypes.INTEGER(11),
-      allowNull: false,
-      primaryKey: true,
-      autoIncrement: true
-    },
     articleid: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
@@ -23,6 +17,12 @@ module.exports = function(sequelize, DataTypes) {
         model: 'tags',
         key: 'id'
       }
+    },
+    id: {
+      type: DataTypes.INTEGER(11),
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true
     }
   }, {
     tableName: 'articletagrelate'
