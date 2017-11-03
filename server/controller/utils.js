@@ -2,7 +2,7 @@
  * @Author: wangcaowei
  * @Date: 2017-09-06 00:19:53
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-10-31 11:49:15
+ * @Last Modified time: 2017-11-03 15:43:23
  */
 const path = require("path");
 const sequelize = require("../db/db");
@@ -10,12 +10,12 @@ const articleMod = sequelize.import(path.join(__dirname, "../models/articles.js"
 const tagsMod = sequelize.import(path.join(__dirname, "../models/tags.js"));
 
 //获取文章列表
-exports.getArticleList = async tagId => {
+exports.getArticleList = async params => {
   articleMod.belongsToMany(tagsMod, { through: "articletagrelate" });
   tagsMod.belongsToMany(articleMod, { through: "articletagrelate" });
   let articleIds = [];
   // 有tagid 根据id查询相关信息
-  if (tagId) {
+  if (params.tagId) {
     const articleListByTagId = await articleMod.findAll({
       attributes: ["id"],
       include: [
@@ -25,7 +25,7 @@ exports.getArticleList = async tagId => {
             attributes: []
           },
           attributes: [],
-          where: { id: tagId }
+          where: { id: params.tagId }
         }
       ]
     });
@@ -33,7 +33,8 @@ exports.getArticleList = async tagId => {
   }
   //多对多的查询
   const articleList = await articleMod.findAll({
-    attributes: ["id", "title", "abstract", "createTime", "updateTime", "userid"],
+    // articleMod 需要返回的字段
+    attributes: ["id", "title",'content', "abstract", "createTime", "updateTime", "userid"],
     include: [
       {
         model: tagsMod,
@@ -44,13 +45,21 @@ exports.getArticleList = async tagId => {
     ],
     order: [["updateTime", "DESC"]],
     where: (() => {
-      return tagId
-        ? {
-            id: {
-              $in: articleIds
-            }
+      let whereCondition = {};
+      // 有tagId的情况
+      if (!!params.tagId) {
+        whereCondition = {
+          id: {
+            $in: articleIds
           }
-        : {};
+        };
+      } else if (!!params.id) {
+        // 有id的情况
+        whereCondition = {
+          id: params.id
+        };
+      }
+      return whereCondition;
     })()
   });
   return articleList;

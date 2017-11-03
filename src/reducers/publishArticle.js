@@ -1,6 +1,5 @@
 const publishArticle = (
   state = {
-    // editorValue: {},
     tagList: []
   },
   action

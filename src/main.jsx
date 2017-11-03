@@ -2,7 +2,7 @@
  * @Author: wangcaowei
  * @Date: 2017-08-18 13:02:07
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-10-27 14:10:07
+ * @Last Modified time: 2017-11-03 16:55:14
  */
 import React, {Component} from "react";
 import {Provider} from 'react-redux';
@@ -40,7 +40,6 @@ export default class App extends Component {
     }
 }
 const Index = ({match}) => {
-    console.log(match)
     return (
         <Layout className="index-root">
             <Sider

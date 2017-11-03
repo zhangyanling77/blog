@@ -2,7 +2,7 @@
  * @Author: wangcaowei
  * @Date: 2017-08-18 12:58:58
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-10-31 11:48:01
+ * @Last Modified time: 2017-11-03 17:12:01
  */
 import api from "../config/api";
 import type from "./type";
@@ -99,7 +99,10 @@ export const getArticleById = id => {
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data);
+        dispatch({
+          type: type.GET_ARTICLE_BY_ID,
+          currentArticle: data.articleList[0]
+        });
       })
       .catch(err => console.log(err));
   };
