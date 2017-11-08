@@ -41,12 +41,10 @@
   "dependencies": {
     "antd": "^2.10.2",
     "bootstrap": "^3.3.7",
-    "clamp-js-main": "^0.11.4",
     "fetch-stringify": "^1.0.2",
     "file-loader": "^0.11.2",
     "highlight.js": "^9.12.0",
     "history": "^4.7.2",
-    "jquery": "^3.2.1",
     "koa": "^2.3.0",
     "koa-bodyparser": "^4.2.0",
     "koa-cors": "^0.0.16",
@@ -61,8 +59,6 @@
     "redux-thunk": "^2.2.0",
     "remarkable": "^1.7.1",
     "sequelize": "^4.5.0",
-    "simditor": "^2.3.6",
-    "snapsvg": "^0.5.1",
     "url-loader": "^0.5.9"
   }
 }

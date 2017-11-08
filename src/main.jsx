@@ -2,7 +2,7 @@
  * @Author: wangcaowei
  * @Date: 2017-08-18 13:02:07
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-11-03 16:55:14
+ * @Last Modified time: 2017-11-08 14:48:55
  */
 import React, {Component} from "react";
 import {Provider} from 'react-redux';
@@ -10,7 +10,6 @@ import {Provider} from 'react-redux';
 import {createStore, applyMiddleware} from 'redux';
 import thunkMiddleWare from 'redux-thunk'
 import reducers from './reducers/index.js';
-import $ from 'jquery';
 import {Layout} from 'antd';
 import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom'
 import Rightcontent from "./components/page/content.jsx"

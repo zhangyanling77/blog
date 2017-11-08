@@ -2,7 +2,7 @@
  * @Author: wangcaowei
  * @Date: 2017-08-17 21:29:21
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-10-31 10:26:59
+ * @Last Modified time: 2017-11-08 17:28:51
  */
 const path = require('path')
 const { databaseConf } = require('../config/config')
@@ -51,4 +51,4 @@ const createModelsFormDb = async() => {
         console.log(error)
     }
 }
-createModelsFormDb()
+execSqlFile()

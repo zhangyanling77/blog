@@ -2,7 +2,7 @@
  * @Author: wangcaowei 
  * @Date: 2017-08-18 16:55:59 
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-10-22 00:52:00
+ * @Last Modified time: 2017-11-08 14:48:43
  */
 var path = require('path');
 var HtmlwebpackPlugin = require('html-webpack-plugin');
@@ -38,9 +38,6 @@ module.exports = {
             test: /\.(js|jsx)$/, //一个匹配loaders所处理的文件的拓展名的正则表达式，这里用来匹配js和jsx文件（必须）
             exclude: /node_modules/, //屏蔽不需要处理的文件（文件夹）（可选）
             loader: 'babel-loader' //loader的名称（必须）
-        }, {
-            test: require.resolve('jquery'),
-            loader: 'expose-loader?$!expose-loader?jQuery', // jQuery and $
         }]
     },
     devServer: {
