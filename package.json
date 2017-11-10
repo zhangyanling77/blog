@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --port 8888 --hot --colors --inline",
-    "build": "cross-env NODE_ENV=production webpack"
+    "build": "cross-env webpack --progress"
   },
   "author": "wangcaowei",
   "license": "ISC",
@@ -56,7 +56,6 @@
     "koa-static": "^4.0.1",
     "mysql2": "^1.4.1",
     "mysqldump": "^1.4.2",
-    "node-ip": "^0.1.2",
     "pn": "^1.0.0",
     "react-router-redux": "^5.0.0-alpha.6",
     "redux-thunk": "^2.2.0",

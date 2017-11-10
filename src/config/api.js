@@ -2,13 +2,11 @@
  * @Author: wangcaowei 
  * @Date: 2017-08-18 16:54:56 
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-11-09 14:24:07
+ * @Last Modified time: 2017-11-10 17:53:29
  */
-const TARGET = process.env.npm_lifecycle_event;
-
-const ip = TARGET === "build" ? "120.78.139.110" : "localhost";
-console.log(process)
-const source = `http://${TARGET}:80`;
+const ENV = process.env.ENV;
+const ip = ENV === "production" ? "120.78.139.110" : "localhost";
+const source = `http://${ip}:80`;
 
 export default {
   publishArticle: source + "/publishArticle", //发表
