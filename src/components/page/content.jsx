@@ -1,7 +1,8 @@
 import React, {Component} from "react";
 import { connect } from 'react-redux'
-import Article from "../artic/article.jsx";
 import { getArticleList } from '../../actions/action.js'
+import asyncComponent from '../../bundle.js'
+const Article = asyncComponent(()=>import("../artic/article.jsx"));
 class Content extends Component {
     constructor(props) {
         super(props)

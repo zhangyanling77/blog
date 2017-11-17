@@ -2,25 +2,24 @@
  * @Author: wangcaowei
  * @Date: 2017-08-18 13:02:07
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-11-08 14:48:55
+ * @Last Modified time: 2017-11-13 15:52:15
  */
 import React, {Component} from "react";
 import {Provider} from 'react-redux';
-// import { CSSTransitionGroup } from 'react-transition-group'
 import {createStore, applyMiddleware} from 'redux';
 import thunkMiddleWare from 'redux-thunk'
 import reducers from './reducers/index.js';
 import {Layout} from 'antd';
 import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom'
-import Rightcontent from "./components/page/content.jsx"
-import NewArticle from './container/newArticle//newArticle.jsx'
-import ArticleDetail from "./container/articleDetail/index.jsx"
+import asyncComponent from './bundle.js';
+
+const {Header, Footer, Sider, Content} = Layout;
+const Rightcontent = asyncComponent(()=>import("./components/page/content.jsx"));
+const NewArticle = asyncComponent(()=>import('./container/newArticle//newArticle.jsx'));
+const ArticleDetail = asyncComponent(()=>import("./container/articleDetail/index.jsx"));
 import 'antd/dist/antd.css'
 import './style/bootstrap/css/bootstrap.min.css'
 import './style/base.scss'
-const {Header, Footer, Sider, Content} = Layout;
-// const history = createHistory(); const middleWare =
-// routerMiddleware(history); //在redux 中使用router
 const store = createStore(reducers, applyMiddleware(thunkMiddleWare))
 store.subscribe(() => console.log(store.getState()))
 

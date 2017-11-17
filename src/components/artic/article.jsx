@@ -2,7 +2,7 @@
  * @Author: wangcaowei 
  * @Date: 2017-09-10 21:20:10 
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-11-10 11:29:53
+ * @Last Modified time: 2017-11-13 15:51:53
  */
 
 import React, { Component } from "react";
@@ -10,7 +10,6 @@ import { Link } from "react-router-dom";
 import { Tag } from "antd";
 import { getArticleList } from "../../actions/action.js";
 import { connect } from "react-redux";
-const clamp = require("clamp-js-main");
 import md from "../../config/markdownConfig.js";
 import "./article.scss";
 import "../../style/base.scss";
@@ -18,11 +17,6 @@ import "../../style/base.scss";
 class Article extends Component {
   constructor(props) {
     super(props);
-  }
-  componentDidMount() {
-    // 多行文本溢出隐藏
-    const domNode = document.querySelector(".article-content").firstChild;
-    clamp(domNode, { clamp: 2 });
   }
 
   render() {

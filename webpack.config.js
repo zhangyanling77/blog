@@ -2,12 +2,13 @@
  * @Author: wangcaowei 
  * @Date: 2017-08-18 16:55:59 
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-11-10 17:59:28
+ * @Last Modified time: 2017-11-17 18:17:59
  */
 let path = require("path");
 let HtmlwebpackPlugin = require("html-webpack-plugin");
 let webpack = require("webpack");
 let ImageminPlugin = require("imagemin-webpack-plugin").default;
+let ExtractTextPlugin = require("extract-text-webpack-plugin");
 let ROOT_PATH = path.resolve(__dirname);
 let APP_PATH = path.resolve(ROOT_PATH, "src");
 let BUILD_PATH = path.resolve(ROOT_PATH, "dist/");
@@ -58,9 +59,9 @@ let webpackConfig = {
     }),
     new HtmlwebpackPlugin({ title: "you know nothing" }),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.optimize.CommonsChunkPlugin("common.js"), // 默认会把所有入口节点的公共代码提取出来,生成一个common.js
+    new webpack.optimize.CommonsChunkPlugin("common"), // 默认会把所有入口节点的公共代码提取出来,生成一个common.js
     new ImageminPlugin({
-      disble: process.env.NODE_ENV !== "production",
+      disble: process.env.NODE_ENV == "production",
       pngquant: {
         quality: "50"
       }

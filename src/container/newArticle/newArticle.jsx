@@ -2,15 +2,16 @@
  * @Author: wangcaowei
  * @Date: 2017-08-18 16:58:14
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-11-08 14:59:40
+ * @Last Modified time: 2017-11-17 16:52:40
  */
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Row, Col, Input, Button, Select } from "antd";
-import BlogEdit from "../../components/edit/index.jsx";
 import { publishArticle, getTagList } from "../../actions/action.js";
+import asyncComponent from "../../bundle.js";
 import md from "../../config/markdownConfig.js";
 import "./index.scss";
+const BlogEdit = asyncComponent(() => import("../../components/edit/index.jsx"));
 
 const { TextArea } = Input;
 
