@@ -2,7 +2,7 @@
  * @Author: wangcaowei
  * @Date: 2017-08-18 13:02:07
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-11-13 15:52:15
+ * @Last Modified time: 2017-11-30 18:08:06
  */
 import React, {Component} from "react";
 import {Provider} from 'react-redux';
@@ -17,7 +17,6 @@ const {Header, Footer, Sider, Content} = Layout;
 const Rightcontent = asyncComponent(()=>import("./components/page/content.jsx"));
 const NewArticle = asyncComponent(()=>import('./container/newArticle//newArticle.jsx'));
 const ArticleDetail = asyncComponent(()=>import("./container/articleDetail/index.jsx"));
-import 'antd/dist/antd.css'
 import './style/bootstrap/css/bootstrap.min.css'
 import './style/base.scss'
 const store = createStore(reducers, applyMiddleware(thunkMiddleWare))

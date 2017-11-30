@@ -13,9 +13,9 @@ class ArticleDetail extends Component {
     const id = this.props.location.state.article.id;
     this.props.getArticleById(id);
   }
-  getArticleByTagId(tagId){
+  getArticleByTagId(tagId) {
     this.props.getArticleList(tagId);
-    this.props.history.push('/');
+    this.props.history.push("/");
   }
 
   render() {
@@ -23,7 +23,7 @@ class ArticleDetail extends Component {
     let tags =
       data.tags &&
       data.tags.map(tag => (
-        <Tag color="blue" key={tag.id} onClick={this.getArticleByTagId.bind(this,tag.id)}>
+        <Tag color="blue" key={tag.id} onClick={this.getArticleByTagId.bind(this, tag.id)}>
           {tag.tag}
         </Tag>
       ));
@@ -33,8 +33,8 @@ class ArticleDetail extends Component {
         <div className="article-info blog-flex blog-flex-justify">
           <div>{tags}</div>
           <div>
-            <span>{data.createTime}</span>
-            <span>{data.updateTime}</span>
+            <span>创建日期: {new Date(data.createTime).toLocaleDateString()}</span>
+            <span>修改日期: {new Date(data.updateTime).toLocaleDateString()}</span>
           </div>
         </div>
         <div

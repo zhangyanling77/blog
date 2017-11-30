@@ -2,7 +2,7 @@
  * @Author: wangcaowei 
  * @Date: 2017-08-18 16:55:59 
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-11-17 18:17:59
+ * @Last Modified time: 2017-11-30 18:49:32
  */
 let path = require("path");
 let HtmlwebpackPlugin = require("html-webpack-plugin");
@@ -18,7 +18,7 @@ let webpackConfig = {
   //项目的文件夹 可以直接用文件夹名称 默认会找index.js 也可以确定是哪个文件名字
   entry: {
     bundle: path.resolve(APP_PATH, "index.js"),
-    vendor: ["react", "react-dom", "react-router-dom", "react-hot-loader", "redux", "react-redux", "antd"]
+    vendor: ["react", "react-dom", "react-router-dom", "react-hot-loader"]
   },
   //输出的文件名 合并以后的js会命名为bundle.js
   output: {
@@ -30,11 +30,19 @@ let webpackConfig = {
     loaders: [
       {
         test: /\.css$/,
-        loaders: ["style-loader", "css-loader"]
+        loader: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          loader: "css-loader",
+          publicPath: "/dist/"
+        })
       },
       {
         test: /\.scss$/,
-        loaders: "style-loader!css-loader!sass-loader"
+        loader: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: ['css-loader', 'sass-loader'],
+          publicPath: "/dist/"
+        })
       },
       {
         test: /\.(png|jpg|gif)$/,
@@ -59,16 +67,21 @@ let webpackConfig = {
     }),
     new HtmlwebpackPlugin({ title: "you know nothing" }),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.optimize.CommonsChunkPlugin("common"), // 默认会把所有入口节点的公共代码提取出来,生成一个common.js
+    new webpack.optimize.CommonsChunkPlugin('common'), // 默认会把所有入口节点的公共代码提取出来,生成一个common.js
     new ImageminPlugin({
       disble: process.env.NODE_ENV == "production",
       pngquant: {
         quality: "50"
       }
+    }),
+    new ExtractTextPlugin({
+      filename: "bundle.css",
+      disable: false,
+      allChunks: true
     })
   ]
 };
-if (process.env.NODE_ENV === "production") {
+if (ENV === "production") {
   webpackConfig.plugins.push(
     new webpack.optimize.UglifyJsPlugin({
       compress: {

@@ -2,7 +2,7 @@
  * @Author: wangcaowei
  * @Date: 2017-08-18 12:58:58
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-11-03 17:12:01
+ * @Last Modified time: 2017-11-24 17:59:30
  */
 import api from "../config/api";
 import type from "./type";

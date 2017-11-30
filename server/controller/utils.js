@@ -2,7 +2,7 @@
  * @Author: wangcaowei
  * @Date: 2017-09-06 00:19:53
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-11-03 15:43:23
+ * @Last Modified time: 2017-11-30 17:00:55
  */
 const path = require("path");
 const sequelize = require("../db/db");
@@ -34,7 +34,7 @@ exports.getArticleList = async params => {
   //多对多的查询
   const articleList = await articleMod.findAll({
     // articleMod 需要返回的字段
-    attributes: ["id", "title",'content', "abstract", "createTime", "updateTime", "userid"],
+    attributes: ["id", "title", "content", "abstract", "createTime", "updateTime", "userid"],
     include: [
       {
         model: tagsMod,
