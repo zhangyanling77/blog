@@ -18,7 +18,8 @@ let webpackConfig = {
   //项目的文件夹 可以直接用文件夹名称 默认会找index.js 也可以确定是哪个文件名字
   entry: {
     bundle: path.resolve(APP_PATH, "index.js"),
-    vendor: ["react", "react-dom", "react-router-dom", "react-hot-loader"]
+    vendor: ["react", "react-dom", "react-router-dom", "react-hot-loader"],
+    // vendor1:["antd"]
   },
   //输出的文件名 合并以后的js会命名为bundle.js
   output: {
@@ -59,6 +60,7 @@ let webpackConfig = {
     historyApiFallback: true,
     open: true
   },
+  devtool: ENV==='production'?'cheap-module-source-map':'cheap-module-eval-source-map',
   //添加我们的插件 会自动生成一个html文件
   plugins: [
     new webpack.DefinePlugin({
@@ -67,7 +69,9 @@ let webpackConfig = {
     }),
     new HtmlwebpackPlugin({ title: "you know nothing" }),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.optimize.CommonsChunkPlugin('common'), // 默认会把所有入口节点的公共代码提取出来,生成一个common.js
+    new webpack.optimize.CommonsChunkPlugin({
+      names:['vendor','manifest']
+    }), // 默认会把所有入口节点的公共代码提取出来,生成一个common.js
     new ImageminPlugin({
       disble: process.env.NODE_ENV == "production",
       pngquant: {
@@ -81,6 +85,7 @@ let webpackConfig = {
     })
   ]
 };
+console.log(process.env.ENV,ENV)
 if (ENV === "production") {
   webpackConfig.plugins.push(
     new webpack.optimize.UglifyJsPlugin({
