@@ -2,7 +2,7 @@
  * @Author: wangcaowei
  * @Date: 2017-08-18 13:02:07
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-11-30 18:08:06
+ * @Last Modified time: 2017-12-22 17:02:05
  */
 import React, {Component} from "react";
 import {Provider} from 'react-redux';

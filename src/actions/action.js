@@ -2,11 +2,10 @@
  * @Author: wangcaowei
  * @Date: 2017-08-18 12:58:58
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-11-24 17:59:30
+ * @Last Modified time: 2017-12-22 17:06:57
  */
 import api from "../config/api";
 import type from "./type";
-require("fetch-stringify");
 const qs = require("qs");
 
 /**
