@@ -5,7 +5,7 @@ import '../style/sublimeTheme.scss'
 export default new Remarkable('full', {
   html:         false,        // Enable HTML tags in source
   xhtmlOut:     false,        // Use '/' to close single tags (<br />)
-  breaks:       false,        // Convert '\n' in paragraphs into <br>
+  breaks:       true,        // Convert '\n' in paragraphs into <br>
   langPrefix:   'language-',  // CSS language prefix for fenced blocks
   linkify:      true,         // autoconvert URL-like texts to links
   linkTarget:   '',           // set target to open link in
