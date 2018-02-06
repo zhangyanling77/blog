@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import md from "../../config/markdownConfig.js";
-import { Tag } from "antd";
+import { Tag, Button } from "antd";
 import { getArticleList, getArticleById } from "../../actions/action.js";
 import "./index.scss";
 class ArticleDetail extends Component {
@@ -17,32 +17,40 @@ class ArticleDetail extends Component {
     this.props.getArticleList(tagId);
     this.props.history.push("/");
   }
-
+  editArticle(article) {
+    console.log(this.props.history);
+    this.props.history.push({ pathname: "/write-article", state: article });
+  }
   render() {
-    let data = this.props.article;
+    let article = this.props.article;
     let tags =
-      data.tags &&
-      data.tags.map(tag => (
+      article.tags &&
+      article.tags.map(tag => (
         <Tag color="blue" key={tag.id} onClick={this.getArticleByTagId.bind(this, tag.id)}>
           {tag.tag}
         </Tag>
       ));
-    return Object.keys(data).length ? (
+    return Object.keys(article).length ? (
       <div className="article-detail">
-        <h1>{data.title}</h1>
+        <h1>{article.title}</h1>
         <div className="article-info blog-flex blog-flex-justify">
           <div>{tags}</div>
           <div>
-            <span>创建日期: {new Date(data.createTime).toLocaleDateString()}</span>
-            <span>修改日期: {new Date(data.updateTime).toLocaleDateString()}</span>
+            <span>创建日期: {new Date(article.createTime).toLocaleDateString()}</span>
+            <span>修改日期: {new Date(article.updateTime).toLocaleDateString()}</span>
           </div>
         </div>
         <div
           className=""
           dangerouslySetInnerHTML={{
-            __html: md.render(data.content)
+            __html: md.render(article.content)
           }}
         />
+        <div className="article-footer">
+          <Button type="primary" icon="check-circle-o" onClick={() => this.editArticle(article)}>
+            编辑
+          </Button>
+        </div>
       </div>
     ) : (
       <div>加载中...</div>

@@ -2,12 +2,15 @@
  * @Author: wangcaowei
  * @Date: 2017-08-18 12:58:58
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-12-22 17:06:57
+ * @Last Modified time: 2018-02-06 16:18:20
  */
 import api from "../config/api";
 import type from "./type";
+import { push } from "react-router-redux";
 const qs = require("qs");
-
+const headers = {
+  "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+};
 /**
  *
  * 发表文章
@@ -19,15 +22,13 @@ export const publishArticle = article => {
     //开始请求
     fetch(api.publishArticle, {
       method: "post",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
-      },
+      headers,
       body: qs.stringify(article)
     })
       .then(res => res.json())
       .then(data => {
         if (data.code == 200) {
-          window.location.href = "/";
+          dispatch(push("/"));
           getAllList();
         }
       })
@@ -36,17 +37,15 @@ export const publishArticle = article => {
 };
 
 /**
- * 
+ *
  * 获取tag对应的文章列表
- * @returns 
+ * @returns
  */
 export const getArticleList = tagId => {
   return dispatch => {
     fetch(api.getArticleList, {
       method: "post",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
-      },
+      headers,
       body: qs.stringify({ tagId })
     })
       .then(res => res.json())
@@ -61,10 +60,10 @@ export const getArticleList = tagId => {
 };
 
 /**
- * 
+ *
  * 获取所有标签列表
- * @param 
- * @returns 
+ * @param
+ * @returns
  */
 export const getTagList = () => {
   return dispatch => {
@@ -81,9 +80,9 @@ export const getTagList = () => {
 };
 
 /**
- * 
+ *
  *  根据id获取文章内容
- * @param 
+ * @param
  * @returns
  */
 
