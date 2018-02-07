@@ -1,3 +1,9 @@
+/*
+ * @Author: wangcaowei 
+ * @Date: 2018-02-07 17:37:15 
+ * @Last Modified by: wangcaowei 
+ * @Last Modified time: 2018-02-07 17:37:15 
+ */
 import React, { Component } from "react";
 
 export default function asyncComponent(importComponent) {

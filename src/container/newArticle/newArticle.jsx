@@ -2,7 +2,7 @@
  * @Author: wangcaowei
  * @Date: 2017-08-18 16:58:14
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-11-17 16:52:40
+ * @Last Modified time: 2018-02-07 19:55:30
  */
 import React, { Component } from "react";
 import { connect } from "react-redux";
@@ -21,6 +21,7 @@ class NewArticle extends Component {
     this.state = {
       title: "",
       button: true, //是否禁用按钮
+      abstract:'',
       selectTag: [],
       markdown: "",
       html: ""
@@ -45,7 +46,19 @@ class NewArticle extends Component {
       selectTag: val.map(ele => this.props.tagList[ele - 1]).map(ele => ele.id)
     });
   }
-  componentWillMount() {
+  componentDidMount() {
+    let { state } = this.props.history.location;
+    console.log(state)
+    state &&
+      this.setState({
+        title: state.title,
+        markdown: state.content,
+        abstract: state.abstract,
+        selectTag: state.tags.map(tag => {
+          console.log(111)
+          return tag.id
+        })
+      });
     !this.props.tagList.length && this.props.getTagList();
   }
   // markdown textarea

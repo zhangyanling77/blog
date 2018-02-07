@@ -1,66 +1,72 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-const BasicExample = () => (
+// Each logical "route" has two components, one for
+// the sidebar and one for the main area. We want to
+// render both of them in different places when the
+// path matches the current URL.
+const routes = [
+  {
+    path: "/",
+    exact: true,
+    sidebar: () => <div>home!</div>,
+    main: () => <Link to="/bubblegum">Home</Link>
+  },
+  {
+    path: "/bubblegum",
+    sidebar: () => <div>bubblegum!</div>,
+    main: () => <Link to="/">Bubblegum</Link>
+  },
+  {
+    path: "/shoelaces",
+    sidebar: () => <div>shoelaces!</div>,
+    main: () => <Link to="/bubblegum">Shoelaces</Link>
+  }
+];
+
+const SidebarExample = () => (
   <Router>
-    <div>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/about">About</Link>
-        </li>
-        <li>
-          <Link to="/topics">Topics</Link>
-        </li>
-      </ul>
+    <div style={{ display: "flex" }}>
+      <div
+        style={{
+          padding: "10px",
+          width: "40%",
+          background: "#f0f0f0"
+        }}
+      >
+        <ul style={{ listStyleType: "none", padding: 0 }}>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/bubblegum">Bubblegum</Link>
+          </li>
+          <li>
+            <Link to="/shoelaces">Shoelaces</Link>
+          </li>
+        </ul>
 
-      <hr />
+        {routes.map((route, index) => (
+          // You can render a <Route> in as many places
+          // as you want in your app. It will render along
+          // with any other <Route>s that also match the URL.
+          // So, a sidebar or breadcrumbs or anything else
+          // that requires you to render multiple things
+          // in multiple places at the same URL is nothing
+          // more than multiple <Route>s.
+          <Route key={index} path={route.path} exact={route.exact} component={route.sidebar} />
+        ))}
+      </div>
 
-      <Route exact path="/" component={Home} />
-      <Route path="/about" component={About} />
-      <Route path="/topics" component={Topics} />
+      <div style={{ flex: 1, padding: "10px" }}>
+        {routes.map((route, index) => (
+          // Render more <Route>s with the same paths as
+          // above, but different components this time.
+          <Route key={index} path={route.path} exact={route.exact} component={route.main} />
+        ))}
+      </div>
     </div>
   </Router>
 );
 
-const Home = () => (
-  <div>
-    <h2>Home</h2>
-  </div>
-);
-
-const About = () => (
-  <div>
-    <h2>About</h2>
-  </div>
-);
-
-const Topics = ({ match }) => (
-  <div>
-    <h2>Topics</h2>
-    <ul>
-      <li>
-        <Link to={`${match.url}/rendering`}>Rendering with React</Link>
-      </li>
-      <li>
-        <Link to={`${match.url}/components`}>Components</Link>
-      </li>
-      <li>
-        <Link to={`${match.url}/props-v-state`}>Props v. State</Link>
-      </li>
-    </ul>
-
-    <Route path={`${match.url}/:topicId`} component={Topic} />
-    <Route exact path={match.url} render={() => <h3>Please select a topic.</h3>} />
-  </div>
-);
-
-const Topic = ({ match }) => (
-  <div>
-    <h3>{match.params.topicId}</h3>
-  </div>
-);
-
-export default BasicExample;
+export default SidebarExample;

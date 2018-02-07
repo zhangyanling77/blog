@@ -2,7 +2,7 @@
  * @Author: wangcaowei 
  * @Date: 2017-08-18 16:55:59 
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-12-22 16:44:55
+ * @Last Modified time: 2018-02-07 10:03:04
  */
 let path = require("path");
 let HtmlwebpackPlugin = require("html-webpack-plugin");
@@ -68,7 +68,7 @@ let webpackConfig = {
     new HtmlwebpackPlugin({ title: "you know nothing" }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
-      names: ["vendor", "manifest"]
+      names: ["vendor"]
     }), // 默认会把所有入口节点的公共代码提取出来,生成一个common.js
     new ExtractTextPlugin({
       filename: "bundle.css",

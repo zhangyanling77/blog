@@ -1,3 +1,9 @@
+/*
+ * @Author: wangcaowei 
+ * @Date: 2018-02-07 17:37:39 
+ * @Last Modified by: wangcaowei
+ * @Last Modified time: 2018-02-07 19:46:27
+ */
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import md from "../../config/markdownConfig.js";
@@ -18,7 +24,6 @@ class ArticleDetail extends Component {
     this.props.history.push("/");
   }
   editArticle(article) {
-    console.log(this.props.history);
     this.props.history.push({ pathname: "/write-article", state: article });
   }
   render() {
