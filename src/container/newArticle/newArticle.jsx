@@ -2,7 +2,7 @@
  * @Author: wangcaowei
  * @Date: 2017-08-18 16:58:14
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2018-02-07 19:55:30
+ * @Last Modified time: 2018-02-08 17:41:03
  */
 import React, { Component } from "react";
 import { connect } from "react-redux";
@@ -11,21 +11,28 @@ import { publishArticle, getTagList } from "../../actions/action.js";
 import asyncComponent from "../../bundle.js";
 import md from "../../config/markdownConfig.js";
 import "./index.scss";
-const BlogEdit = asyncComponent(() => import("../../components/edit/index.jsx"));
 
 const { TextArea } = Input;
 
 class NewArticle extends Component {
   constructor(props) {
     super(props);
+    let { state } = props.history.location;
     this.state = {
-      title: "",
+      title: state ? state.title : "",
+      abstract: state ? state.abstract : "",
+      selectTag: ['1', '2', '3'],
+      markdown: state ? state.content : "",
       button: true, //是否禁用按钮
-      abstract:'',
-      selectTag: [],
-      markdown: "",
       html: ""
     };
+  }
+  componentDidMount() {
+    console.log(this.state);
+    !this.props.tagList.length && this.props.getTagList();
+  }
+  componentWillReceiveProps(nextProps) {
+    this.forceUpdate();
   }
   titleChange(e) {
     e.preventDefault();
@@ -42,24 +49,13 @@ class NewArticle extends Component {
     this.props.publishArticle(data);
   }
   selectChange(val) {
-    this.setState({
-      selectTag: val.map(ele => this.props.tagList[ele - 1]).map(ele => ele.id)
-    });
-  }
-  componentDidMount() {
-    let { state } = this.props.history.location;
-    console.log(state)
-    state &&
-      this.setState({
-        title: state.title,
-        markdown: state.content,
-        abstract: state.abstract,
-        selectTag: state.tags.map(tag => {
-          console.log(111)
-          return tag.id
-        })
-      });
-    !this.props.tagList.length && this.props.getTagList();
+    console.log(this.state.selectTag, this.props.tagList);
+    this.setState(
+      {
+        selectTag: val.map(ele => this.props.tagList[ele - 1]).map(ele => ele.id)
+      },
+      () => console.log(this.state.selectTag)
+    );
   }
   // markdown textarea
   textareaChange(e) {
@@ -75,22 +71,21 @@ class NewArticle extends Component {
       abstract: e.target.value
     });
   }
-
   render() {
     let Option = Select.Option,
       tagList = this.props.tagList.map(tag => <Option key={tag.id}>{tag.tag}</Option>),
       button = this.state.title && this.state.selectTag.length ? false : true;
     return (
       <div className="publish-article blog-flex blog-flex-row-y">
-        <Input ref="articleTitle" placeholder="...标题" style={{ marginBottom: 10 }} size="large" onChange={::this.titleChange} />
-        <Select mode="multiple" style={{ marginBottom: 10 }} placeholder="选择标签" size="large" onChange={::this.selectChange}>
+        <Input ref="articleTitle" placeholder="...标题" style={{ marginBottom: 10 }} size="large" defaultValue={this.state.title} onChange={::this.titleChange} />
+        <Select mode="multiple" defaultValue={this.state.selectTag} style={{ marginBottom: 10 }} placeholder="选择标签" size="large" onChange={::this.selectChange}>
           {tagList}
         </Select>
-        <TextArea placeholder="文章的摘要.." style={{ marginBottom: 10 }} onChange={::this.abstractTextareaChange} />
+        <TextArea placeholder="文章的摘要.." defaultValue={this.state.abstract} style={{ marginBottom: 10 }} onChange={::this.abstractTextareaChange} />
         <div className="edit-wrap ">
           <Row className="text-body">
             <Col span={12}>
-              <BlogEdit ref="editor" onChange={::this.textareaChange} />
+              <TextArea rows={20} defaultValue={this.state.markdown} onChange={::this.textareaChange} />
             </Col>
             <Col span={12}>
               <div
