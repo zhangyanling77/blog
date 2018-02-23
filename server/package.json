@@ -10,7 +10,9 @@
   },
   "author": "wangcaowei",
   "license": "ISC",
-  "devDependencies": {},
+  "devDependencies": {
+    "jwt-simple": "^0.5.1"
+  },
   "dependencies": {
     "koa": "^2.3.0",
     "koa-bodyparser": "^4.2.0",

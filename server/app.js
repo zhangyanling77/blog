@@ -6,6 +6,7 @@
  */
 const path = require('path');
 const koa = require('koa');
+const os = require('os');
 const route = require('koa-router');
 const cors = require('koa-cors') //跨域配置
 const session = require('koa-session2');
@@ -36,6 +37,7 @@ app.use(session({
 app.use(cors());
 app.use(publish.routes());
 app.use(article.routes());
-app.listen(80, () => {
+const APIPORT = os.type() == "Darwin" ? '8090' : '80'
+app.listen(APIPORT, () => {
     console.log('server start at 80');
 });

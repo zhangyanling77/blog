@@ -7,7 +7,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import { Layout } from "antd";
-
+import BlogHeader from '../header/header.jsx'
 import "../../style/bootstrap/css/bootstrap.min.css";
 import "../../style/base.scss";
 const { Header, Footer, Sider, Content } = Layout;
@@ -32,6 +32,7 @@ export default class App extends Component {
           </div>
         </Sider>
         <Layout className="right blog-flex blog-flex-y-center">
+          <Header className="header"><BlogHeader /></Header>
           <Content className="content">{this.props.children}</Content>
         </Layout>
       </Layout>

@@ -17,19 +17,22 @@ const { TextArea } = Input;
 class NewArticle extends Component {
   constructor(props) {
     super(props);
-    let { state } = props.history.location;
+    let { article } = props.history.location.state;
     this.state = {
-      title: state ? state.title : "",
-      abstract: state ? state.abstract : "",
+      title: article ? article.title : "",
+      abstract: article ? article.abstract : "",
       selectTag: ['1', '2', '3'],
-      markdown: state ? state.content : "",
+      markdown: article ? article.content : "",
       button: true, //是否禁用按钮
       html: ""
     };
   }
   componentDidMount() {
     console.log(this.state);
+    const {location} = this.props.history.location;
     !this.props.tagList.length && this.props.getTagList();
+    
+    location.edit&&this.textareaChange(location.article.content)
   }
   componentWillReceiveProps(nextProps) {
     this.forceUpdate();
