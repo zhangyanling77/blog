@@ -2,7 +2,7 @@
  * @Author: wangcaowei
  * @Date: 2017-08-18 12:58:58
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2018-02-06 16:18:20
+ * @Last Modified time: 2018-02-24 16:05:56
  */
 import api from "../config/api";
 import type from "./type";
@@ -105,3 +105,15 @@ export const getArticleById = id => {
       .catch(err => console.log(err));
   };
 };
+
+/**
+ *显示隐藏login
+ * @param
+ * @returns
+ */
+
+export const showLogin = currentStatue => ({
+  type: type.SHOW_LOGIN,
+  status: 
+  currentStatue
+});

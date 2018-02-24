@@ -2,7 +2,7 @@
  * @Author: wangcaowei 
  * @Date: 2017-08-18 16:55:59 
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2018-02-07 10:03:04
+ * @Last Modified time: 2018-02-24 09:56:25
  */
 let path = require("path");
 let os = require('os');
@@ -66,7 +66,7 @@ let webpackConfig = {
             API: JSON.stringify(process.env.NODE_ENV === "production" ? "120.78.139.110" : "localhost"),
             APIPORT: JSON.stringify(os.type() == "Darwin" ? '8090' : '80'), //Darwin macos Windows_NT windows mac下面80端口有其他的用
         }),
-        new HtmlwebpackPlugin({ title: "you know nothing" }),
+        new HtmlwebpackPlugin({ title: '' }),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.optimize.CommonsChunkPlugin({
             names: ["vendor"]

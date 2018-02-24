@@ -1,0 +1,20 @@
+.login {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  z-index: 1000;
+  background-color: rgba($color: #000, $alpha: 0.8);
+  .login-form {
+    position: absolute;
+    width: 400px;
+    height: 300px;
+    top: 150px;
+    left: 50%;
+    margin-left: -400px;
+    background-color: rgba($color: #fff, $alpha: 1);
+    border-radius: 10px;
+    padding: 40px 25px;
+  }
+}

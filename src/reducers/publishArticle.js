@@ -1,9 +1,4 @@
-const publishArticle = (
-  state = {
-    tagList: []
-  },
-  action
-) => {
+const publishArticle = (state = { tagList: [] }, action) => {
   switch (action.type) {
     /*
         永远都不应该去修改原来的state,

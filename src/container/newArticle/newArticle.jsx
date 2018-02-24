@@ -21,7 +21,7 @@ class NewArticle extends Component {
     this.state = {
       title: article ? article.title : "",
       abstract: article ? article.abstract : "",
-      selectTag: ['1', '2', '3'],
+      selectTag: ["1", "2", "3"],
       markdown: article ? article.content : "",
       button: true, //是否禁用按钮
       html: ""
@@ -29,10 +29,10 @@ class NewArticle extends Component {
   }
   componentDidMount() {
     console.log(this.state);
-    const {location} = this.props.history.location;
+    const { location } = this.props.history.location;
     !this.props.tagList.length && this.props.getTagList();
-    
-    location.edit&&this.textareaChange(location.article.content)
+
+    location.edit && this.textareaChange(location.article.content);
   }
   componentWillReceiveProps(nextProps) {
     this.forceUpdate();
