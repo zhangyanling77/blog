@@ -28,17 +28,19 @@ class Login extends Component {
             })(<Input prefix={<Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />} size="large" type="password" placeholder="Password" />)}
           </FormItem>
           <FormItem>
+            <Button type="primary" htmlType="submit" className="login-form-button">
+              登录
+            </Button>
+          </FormItem>
+          <FormItem>
             {getFieldDecorator("remember", {
               valuePropName: "checked",
               initialValue: true
             })(<Checkbox> Remember me </Checkbox>)}
             <a className="login-form-forgot" href="">
-              Forgot password
+              忘记密码?
             </a>
-            <Button type="primary" htmlType="submit" className="login-form-button">
-              Log in
-            </Button>
-            Or <a href=""> register now! </a>
+            Or <a href=""> 注册 </a>
           </FormItem>
         </Form>
       </div>

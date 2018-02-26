@@ -2,7 +2,7 @@
  * @Author: wangcaowei
  * @Date: 2017-08-18 12:58:58
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2018-02-24 16:05:56
+ * @Last Modified time: 2018-02-26 17:00:04
  */
 import api from "../config/api";
 import type from "./type";
@@ -11,6 +11,22 @@ const qs = require("qs");
 const headers = {
   "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
 };
+
+export const login = userInfo => {
+  return dispatch => {
+    fetch(api.login, {
+      method: "post",
+      body: qs.stringify(userInfo),
+      headers
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+      })
+      .catch(error => console.log(error));
+  };
+};
+
 /**
  *
  * 发表文章
@@ -90,10 +106,8 @@ export const getArticleById = id => {
   return dispatch => {
     fetch(api.getArticleById, {
       method: "post",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
-      },
-      body: qs.stringify({ id })
+      body: qs.stringify({ id }),
+      headers
     })
       .then(res => res.json())
       .then(data => {
@@ -114,6 +128,5 @@ export const getArticleById = id => {
 
 export const showLogin = currentStatue => ({
   type: type.SHOW_LOGIN,
-  status: 
-  currentStatue
+  status: currentStatue
 });

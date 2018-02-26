@@ -2,13 +2,13 @@
  * @Author: wangcaowei
  * @Date: 2017-09-06 00:19:53
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2017-11-30 17:00:55
+ * @Last Modified time: 2018-02-26 17:58:26
  */
 const path = require("path");
 const sequelize = require("../db/db");
 const articleMod = sequelize.import(path.join(__dirname, "../models/articles.js"));
 const tagsMod = sequelize.import(path.join(__dirname, "../models/tags.js"));
-
+const userMod = sequelize.import(path.join(__dirname, "../models/users.js"));
 //获取文章列表
 exports.getArticleList = async params => {
   articleMod.belongsToMany(tagsMod, { through: "articletagrelate" });
@@ -63,4 +63,15 @@ exports.getArticleList = async params => {
     })()
   });
   return articleList;
+};
+
+/**
+ *
+ *判断用户是否登录
+ * @param {any} userName
+ * @returns userinfo 或者 false
+ */
+exports.isLogin = async userName => {
+  const userInfo = await userMod.find({ username });
+  return;
 };
