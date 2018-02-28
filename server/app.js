@@ -15,7 +15,7 @@ const static = require('koa-static')
 const errorHandler = require('./controller/error');
 const article = require('./route/article') //文章
 const publish = require('./route/publish') //发表文章
-
+const login = require('./route/user')
 const app = new koa();
 
 const staticPath = '../dist';
@@ -35,6 +35,7 @@ app.use(session({
     maxAge: 600000 //设置session超时时间
 }))
 app.use(cors());
+app.use(login.routes());
 app.use(publish.routes());
 app.use(article.routes());
 const APIPORT = os.type() == "Darwin" ? '8090' : '80'

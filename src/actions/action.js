@@ -2,29 +2,14 @@
  * @Author: wangcaowei
  * @Date: 2017-08-18 12:58:58
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2018-02-26 17:00:04
+ * @Last Modified time: 2018-03-01 03:37:07
  */
 import api from "../config/api";
 import type from "./type";
 import { push } from "react-router-redux";
 const qs = require("qs");
 const headers = {
-  "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
-};
-
-export const login = userInfo => {
-  return dispatch => {
-    fetch(api.login, {
-      method: "post",
-      body: qs.stringify(userInfo),
-      headers
-    })
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
-      })
-      .catch(error => console.log(error));
-  };
+    "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
 };
 
 /**
@@ -34,22 +19,22 @@ export const login = userInfo => {
  * @returns
  */
 export const publishArticle = article => {
-  return dispatch => {
-    //开始请求
-    fetch(api.publishArticle, {
-      method: "post",
-      headers,
-      body: qs.stringify(article)
-    })
-      .then(res => res.json())
-      .then(data => {
-        if (data.code == 200) {
-          dispatch(push("/"));
-          getAllList();
-        }
-      })
-      .catch(error => console.error(error));
-  };
+    return dispatch => {
+        //开始请求
+        fetch(api.publishArticle, {
+                method: "post",
+                headers,
+                body: qs.stringify(article)
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.code == 200) {
+                    dispatch(push("/"));
+                    getAllList();
+                }
+            })
+            .catch(error => console.error(error));
+    };
 };
 
 /**
@@ -58,21 +43,21 @@ export const publishArticle = article => {
  * @returns
  */
 export const getArticleList = tagId => {
-  return dispatch => {
-    fetch(api.getArticleList, {
-      method: "post",
-      headers,
-      body: qs.stringify({ tagId })
-    })
-      .then(res => res.json())
-      .then(data => {
-        dispatch({
-          type: type.GET_ALL_LIST,
-          articleList: data.articleList
-        });
-      })
-      .catch(e => console.error(e));
-  };
+    return dispatch => {
+        fetch(api.getArticleList, {
+                method: "post",
+                headers,
+                body: qs.stringify({ tagId })
+            })
+            .then(res => res.json())
+            .then(data => {
+                dispatch({
+                    type: type.GET_ALL_LIST,
+                    articleList: data.articleList
+                });
+            })
+            .catch(e => console.error(e));
+    };
 };
 
 /**
@@ -82,17 +67,17 @@ export const getArticleList = tagId => {
  * @returns
  */
 export const getTagList = () => {
-  return dispatch => {
-    fetch(api.getTagList)
-      .then(res => res.json())
-      .then(data => {
-        dispatch({
-          type: type.GET_TAG_LIST,
-          tagList: data.tagList
-        });
-      })
-      .catch(e => console.error(e));
-  };
+    return dispatch => {
+        fetch(api.getTagList)
+            .then(res => res.json())
+            .then(data => {
+                dispatch({
+                    type: type.GET_TAG_LIST,
+                    tagList: data.tagList
+                });
+            })
+            .catch(e => console.error(e));
+    };
 };
 
 /**
@@ -103,21 +88,21 @@ export const getTagList = () => {
  */
 
 export const getArticleById = id => {
-  return dispatch => {
-    fetch(api.getArticleById, {
-      method: "post",
-      body: qs.stringify({ id }),
-      headers
-    })
-      .then(res => res.json())
-      .then(data => {
-        dispatch({
-          type: type.GET_ARTICLE_BY_ID,
-          currentArticle: data.articleList[0]
-        });
-      })
-      .catch(err => console.log(err));
-  };
+    return dispatch => {
+        fetch(api.getArticleById, {
+                method: "post",
+                body: qs.stringify({ id }),
+                headers
+            })
+            .then(res => res.json())
+            .then(data => {
+                dispatch({
+                    type: type.GET_ARTICLE_BY_ID,
+                    currentArticle: data.articleList[0]
+                });
+            })
+            .catch(err => console.log(err));
+    };
 };
 
 /**
@@ -127,6 +112,40 @@ export const getArticleById = id => {
  */
 
 export const showLogin = currentStatue => ({
-  type: type.SHOW_LOGIN,
-  status: currentStatue
+    type: type.SHOW_LOGIN,
+    status: currentStatue
 });
+
+/**
+ *用户注册
+ * @param
+ * @returns
+ */
+export const regist = userInfo => {
+    return dispatch => {
+        fetch(api.regist, {
+                method: "POST",
+                body: qs.stringify(userInfo),
+                headers
+            })
+            .then(res => res.json())
+            .then(data => console.log(data));
+    };
+};
+/**
+ * 登录
+ *
+ * @param {any} userInfo
+ * @returns
+ */
+export const login = userInfo => {
+    return dispatch => {
+        fetch(api.login, {
+                method: "POST",
+                body: qs.stringify(userInfo),
+                headers
+            })
+            .then(res => res.json())
+            .then(data => console.log(data));
+    };
+};
