@@ -2,7 +2,7 @@
  * @Author: wangcaowei 
  * @Date: 2017-08-21 23:52:13 
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2018-03-01 22:44:45
+ * @Last Modified time: 2018-03-02 01:05:55
  */
 const path = require("path");
 const sequelize = require("../db/db");
@@ -32,7 +32,7 @@ exports.login = async(ctx, next) => {
  */
 exports.regist = async(ctx, next) => {
     const { username, password } = ctx.request.body;
-    const isLogin = await utils.isLogin(userName);
+    const isLogin = await utils.getUserByUserName(username);
     //已经注册
     if (isLogin) {
         ctx.body = {

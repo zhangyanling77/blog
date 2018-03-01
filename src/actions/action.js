@@ -2,7 +2,7 @@
  * @Author: wangcaowei
  * @Date: 2017-08-18 12:58:58
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2018-03-01 03:37:07
+ * @Last Modified time: 2018-03-02 02:02:04
  */
 import api from "../config/api";
 import type from "./type";
@@ -115,7 +115,21 @@ export const showLogin = currentStatue => ({
     type: type.SHOW_LOGIN,
     status: currentStatue
 });
-
+/**
+ * 检查用户名是否已经被注册
+ * 
+ * @param {any} username 
+ * @returns 
+ */
+export const checkRegist = username => {
+    return fetch(api.checkRegist, {
+            method: "POST",
+            body: qs.stringify({ username }),
+            headers
+        })
+        .then(res => res.json())
+        // .then(data => data);
+};
 /**
  *用户注册
  * @param

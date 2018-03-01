@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Form, Icon, Input, Button, Checkbox } from "antd";
-import { regist,login } from "../../actions/action";
+import { checkRegist, regist, login } from "../../actions/action";
 import "./login.scss";
 const FormItem = Form.Item;
 
@@ -13,9 +13,17 @@ class Login extends Component {
     e.preventDefault();
     this.props.form.validateFields((err, userInfo) => {
       if (!err) {
-        this.state.isLogin ? this.props.login(userInfo) : this.props.regist(userInfo);
+        this.state.isLogin
+          ? this.props.login(userInfo)
+          : this.props.regist(userInfo);
       }
     });
+  };
+  checkRegist = async (rule, value, callback) => {
+    const user = await checkRegist(value),
+      form = this.props.form;
+    const message = user.userInfo ? "该名称已被注册" : "";
+    callback(message);
   };
   render() {
     const { getFieldDecorator } = this.props.form;
@@ -25,7 +33,14 @@ class Login extends Component {
           <FormItem>
             {getFieldDecorator("username", {
               rules: [
-                { required: true, message: "Please input your username!" }
+                {
+                  required: true,
+                  message: "请输入用户名",
+                  whitespace: true
+                },
+                {
+                  validator: !this.state.isLogin && this.checkRegist
+                }
               ]
             })(
               <Input
@@ -33,15 +48,13 @@ class Login extends Component {
                   <Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />
                 }
                 size="large"
-                placeholder="Username"
+                placeholder="用户名"
               />
             )}
           </FormItem>
           <FormItem>
             {getFieldDecorator("password", {
-              rules: [
-                { required: true, message: "Please input your Password!" }
-              ]
+              rules: [{ required: true, message: "请输入密码" }]
             })(
               <Input
                 prefix={
@@ -49,7 +62,7 @@ class Login extends Component {
                 }
                 size="large"
                 type="password"
-                placeholder="Password"
+                placeholder="密码"
               />
             )}
           </FormItem>
@@ -87,6 +100,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     login: userInfo => dispatch(login(userInfo)),
     regist: userInfo => dispatch(regist(userInfo))
+    // checkRegist:username=>dispatch(checkRegist(username))
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(

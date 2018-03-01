@@ -2,7 +2,7 @@
  * @Author: wangcaowei
  * @Date: 2017-09-06 00:19:53
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2018-03-01 03:12:25
+ * @Last Modified time: 2018-03-02 01:28:58
  */
 const path = require("path");
 const sequelize = require("../db/db");
@@ -65,11 +65,11 @@ exports.getArticleList = async params => {
 
 /**
  *
- *判断用户是否登录
+ *根据用户名获取用户信息
  * @param {any} userName
- * @returns userinfo 或者 false
+ * @returns userinfo 或者 null
  */
-exports.isLogin = async username => {
-    const userInfo = await userMod.find({ where: { username } });
-    return userInfo;
+exports.getUserByUserName = async username => {
+    const a = await userMod.find({ where: { username } });
+    return a
 };

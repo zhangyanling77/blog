@@ -2,11 +2,12 @@
  * @Author: wangcaowei 
  * @Date: 2017-08-18 16:54:56 
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2018-03-01 01:54:27
+ * @Last Modified time: 2018-03-02 00:09:29
  */
 const source = `http://${API}:${APIPORT}`;
 
 export default {
+    checkRegist: source + "/checkRegist", //用户名是否已经被注册
     login: source + "/login", //登录
     regist: source + "/regist", //注册
     publishArticle: source + "/publishArticle", //发表

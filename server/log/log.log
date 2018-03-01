@@ -4,3 +4,9 @@
 [2018-03-01T22:44:10.977] [TRACE] blog - ReferenceError: user1 is not defined
     at exports.login (/Users/wangcaowei/Documents/frontend/blog/server/controller/user.js:23:9)
     at <anonymous>
+[2018-03-01T23:58:19.133] [TRACE] blog - ReferenceError: user1 is not defined
+    at exports.login (/Users/wangcaowei/Documents/frontend/blog/server/controller/user.js:23:9)
+    at <anonymous>
+[2018-03-02T00:00:09.453] [TRACE] blog - ReferenceError: user1 is not defined
+    at exports.login (/Users/wangcaowei/Documents/frontend/blog/server/controller/user.js:23:9)
+    at <anonymous>
