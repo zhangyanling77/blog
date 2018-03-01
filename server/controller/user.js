@@ -2,7 +2,7 @@
  * @Author: wangcaowei 
  * @Date: 2017-08-21 23:52:13 
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2018-03-01 03:40:44
+ * @Last Modified time: 2018-03-01 22:44:45
  */
 const path = require("path");
 const sequelize = require("../db/db");
