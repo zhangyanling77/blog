@@ -2,7 +2,7 @@
  * @Author: wangcaowei
  * @Date: 2017-09-06 00:19:53
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2018-03-02 01:28:58
+ * @Last Modified time: 2018-03-04 05:22:35
  */
 const path = require("path");
 const sequelize = require("../db/db");
@@ -70,6 +70,5 @@ exports.getArticleList = async params => {
  * @returns userinfo 或者 null
  */
 exports.getUserByUserName = async username => {
-    const a = await userMod.find({ where: { username } });
-    return a
+    return await userMod.find({ where: { username } });
 };

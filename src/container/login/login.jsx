@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Form, Icon, Input, Button, Checkbox } from "antd";
-import { checkRegist, regist, login } from "../../actions/action";
+import { Modal, Form, Icon, Input, Button, Checkbox } from "antd";
+import { showLogin, checkRegist, regist, login } from "../../actions/action";
 import "./login.scss";
 const FormItem = Form.Item;
 
@@ -11,24 +11,40 @@ class Login extends Component {
   };
   handleSubmit = e => {
     e.preventDefault();
-    this.props.form.validateFields((err, userInfo) => {
-      if (!err) {
-        this.state.isLogin
-          ? this.props.login(userInfo)
-          : this.props.regist(userInfo);
+    this.props.form.validateFields(async (err, userInfo) => {
+      if(err) return;
+      if(this.state.isLogin){
+        await this.props.login(userInfo);
+        this.cancelModal();
+      }else{
+        this.props.regist(userInfo)
       }
     });
   };
+  /**
+   * 验证用户名是否存在
+   *
+   * @memberof Login
+   */
   checkRegist = async (rule, value, callback) => {
     const user = await checkRegist(value),
       form = this.props.form;
     const message = user.userInfo ? "该名称已被注册" : "";
-    callback(message);
+    message&&callback(message);
   };
+  cancelModal = () => {
+    this.props.showLogin(this.props.status);
+  };
+
   render() {
     const { getFieldDecorator } = this.props.form;
     return (
-      <div className="login">
+      <Modal
+        title={this.state.isLogin ? "登录" : "注册"}
+        visible={this.props.status}
+        onCancel={this.cancelModal}
+        footer={null}
+      >
         <Form onSubmit={this.handleSubmit} className="login-form">
           <FormItem>
             {getFieldDecorator("username", {
@@ -89,15 +105,16 @@ class Login extends Component {
             </a>
           </FormItem>
         </Form>
-      </div>
+      </Modal>
     );
   }
 }
 const mapStateToProps = (state, ownProps) => {
-  return {};
+  return { status: state.user.showLogin };
 };
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
+    showLogin: currentStatus => dispatch(showLogin(currentStatus)),
     login: userInfo => dispatch(login(userInfo)),
     regist: userInfo => dispatch(regist(userInfo))
     // checkRegist:username=>dispatch(checkRegist(username))

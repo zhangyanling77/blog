@@ -4,15 +4,19 @@ import { showLogin } from "../../actions/action";
 import { Button } from "antd";
 import "./header.scss";
 const Header = props => (
-  <div className="blog-Header">
-    <Button type="primary" onClick={() => props.showLogin(props.status)}>
-      登录
-    </Button>
+  <div className="blog-header">
+    {props.user ? (
+      `你好，${props.user}`
+    ) : (
+      <Button type="primary" onClick={() => props.showLogin(props.status)}>
+        登录
+      </Button>
+    )}
   </div>
 );
 
 const mapStateToProps = (state, ownProps) => {
-  return { status: state.showLogin };
+  return { status: state.user.showLogin, user: state.user.user };
 };
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {

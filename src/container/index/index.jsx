@@ -21,14 +21,11 @@ class App extends Component {
   constructor(props) {
     super(props);
   }
-  componentDidMount() {
-    console.log(this.props.children);
-  }
   render() {
     return (
       <Layout className="index-root">
-        {this.props.status && <Login />}
-        <Sider className="sider blog-flex blog-flex-row-y blog-flex-x-center blog-flex-y-center " width="650">
+        <Login />
+        <Sider className="sider blog-flex blog-flex-row-y blog-flex-x-center blog-flex-y-center " width="500">
           <div className="left-nav blog-flex blog-flex-row-y blog-flex-x-center">
             <img src={require("../../static/userImages/defaultPic.jpg")} alt=" 头像 " />
             <Link to="/write-article">发表文章</Link>

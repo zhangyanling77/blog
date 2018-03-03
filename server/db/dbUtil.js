@@ -2,7 +2,7 @@
  * @Author: wangcaowei
  * @Date: 2017-08-17 21:29:21
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2018-03-01 02:31:14
+ * @Last Modified time: 2018-03-04 05:29:51
  */
 const path = require('path')
 const { databaseConf } = require('../config/config')
@@ -13,13 +13,6 @@ const fs = require('pn/fs');
 /**
  *  备份数据库生成sql文件
  */
-// const dbBackUp = () => mysqlDump(Object.assign(databaseConf, {
-//     dest: __dirname + '/data.sql'
-// }), err => {
-//     if (err) 
-//         console.log('backup database error');
-//     }
-// )
 const dbBackUp = () => {
     try {
         childProcess.execSync(`mysqldump -u${databaseConf.user} -p${databaseConf.password} ${databaseConf.database} > ${__dirname}/data.sql`)
@@ -51,4 +44,4 @@ const createModelsFormDb = async() => {
         console.log(error)
     }
 }
-createModelsFormDb()
+dbBackUp()

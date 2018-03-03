@@ -10,3 +10,74 @@
 [2018-03-02T00:00:09.453] [TRACE] blog - ReferenceError: user1 is not defined
     at exports.login (/Users/wangcaowei/Documents/frontend/blog/server/controller/user.js:23:9)
     at <anonymous>
+[2018-03-04T04:30:25.391] [TRACE] blog - SequelizeValidationError: string violation: password cannot be an array or an object
+    at Promise.all.then (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_sequelize@4.33.4@sequelize/lib/instance-validator.js:77:15)
+    at tryCatcher (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_bluebird@3.5.1@bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_bluebird@3.5.1@bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_bluebird@3.5.1@bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_bluebird@3.5.1@bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_bluebird@3.5.1@bluebird/js/release/promise.js:693:18)
+    at Promise._fulfill (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_bluebird@3.5.1@bluebird/js/release/promise.js:638:18)
+    at PromiseArray._resolve (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_bluebird@3.5.1@bluebird/js/release/promise_array.js:126:19)
+    at PromiseArray._promiseFulfilled (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_bluebird@3.5.1@bluebird/js/release/promise_array.js:144:14)
+    at Promise._settlePromise (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_bluebird@3.5.1@bluebird/js/release/promise.js:574:26)
+    at Promise._settlePromise0 (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_bluebird@3.5.1@bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_bluebird@3.5.1@bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_bluebird@3.5.1@bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_bluebird@3.5.1@bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_bluebird@3.5.1@bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:781:20)
+    at tryOnImmediate (timers.js:743:5)
+    at processImmediate [as _immediateCallback] (timers.js:714:5)
+[2018-03-04T04:33:05.026] [TRACE] blog - SequelizeValidationError: string violation: password cannot be an array or an object
+    at Promise.all.then (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_sequelize@4.33.4@sequelize/lib/instance-validator.js:77:15)
+    at tryCatcher (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_bluebird@3.5.1@bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_bluebird@3.5.1@bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_bluebird@3.5.1@bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_bluebird@3.5.1@bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_bluebird@3.5.1@bluebird/js/release/promise.js:693:18)
+    at Promise._fulfill (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_bluebird@3.5.1@bluebird/js/release/promise.js:638:18)
+    at PromiseArray._resolve (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_bluebird@3.5.1@bluebird/js/release/promise_array.js:126:19)
+    at PromiseArray._promiseFulfilled (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_bluebird@3.5.1@bluebird/js/release/promise_array.js:144:14)
+    at Promise._settlePromise (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_bluebird@3.5.1@bluebird/js/release/promise.js:574:26)
+    at Promise._settlePromise0 (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_bluebird@3.5.1@bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_bluebird@3.5.1@bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_bluebird@3.5.1@bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_bluebird@3.5.1@bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_bluebird@3.5.1@bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:781:20)
+    at tryOnImmediate (timers.js:743:5)
+    at processImmediate [as _immediateCallback] (timers.js:714:5)
+[2018-03-04T04:57:38.597] [TRACE] blog - TypeError: Cannot read property 'password' of null
+    at exports.login (/Users/wangcaowei/Documents/frontend/blog/server/services/user.js:25:56)
+    at <anonymous>
+[2018-03-04T04:59:19.751] [TRACE] blog - TypeError: Cannot read property 'password' of null
+    at exports.login (/Users/wangcaowei/Documents/frontend/blog/server/services/user.js:25:56)
+    at <anonymous>
+[2018-03-04T04:59:33.877] [TRACE] blog - Error: data and hash arguments required
+    at /Users/wangcaowei/Documents/frontend/blog/server/node_modules/_bcrypt@1.0.3@bcrypt/bcrypt.js:179:16
+    at _combinedTickCallback (internal/process/next_tick.js:131:7)
+    at process._tickCallback (internal/process/next_tick.js:180:9)
+[2018-03-04T05:32:23.088] [TRACE] blog - SequelizeUniqueConstraintError: Validation error
+    at Query.formatError (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_sequelize@4.33.4@sequelize/lib/dialects/mysql/query.js:226:16)
+    at Query.handler [as onResult] (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_sequelize@4.33.4@sequelize/lib/dialects/mysql/query.js:68:23)
+    at Query.Command.execute (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_mysql2@1.5.2@mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_mysql2@1.5.2@mysql2/lib/connection.js:502:28)
+    at PacketParser.onPacket (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_mysql2@1.5.2@mysql2/lib/connection.js:81:16)
+    at PacketParser.executeStart (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_mysql2@1.5.2@mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_mysql2@1.5.2@mysql2/lib/connection.js:89:29)
+    at emitOne (events.js:115:13)
+    at Socket.emit (events.js:210:7)
+    at addChunk (_stream_readable.js:252:12)
+    at readableAddChunk (_stream_readable.js:239:11)
+    at Socket.Readable.push (_stream_readable.js:197:10)
+    at TCP.onread (net.js:589:20)
+[2018-03-04T05:34:21.842] [TRACE] blog - TypeError: Assignment to constant variable.
+    at exports.login (/Users/wangcaowei/Documents/frontend/blog/server/services/user.js:28:17)
+    at <anonymous>
+[2018-03-04T05:36:07.973] [TRACE] blog - TypeError: Assignment to constant variable.
+    at exports.login (/Users/wangcaowei/Documents/frontend/blog/server/services/user.js:28:17)
+    at <anonymous>
+[2018-03-04T05:36:40.729] [TRACE] blog - TypeError: Assignment to constant variable.
+    at exports.login (/Users/wangcaowei/Documents/frontend/blog/server/services/user.js:28:17)
+    at <anonymous>

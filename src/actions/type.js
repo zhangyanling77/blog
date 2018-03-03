@@ -1,5 +1,6 @@
 export default {
     LOGIN: "LOGIN",
+    SAVE_USER_INFO: "SAVE_USER_INFO",
     ADD_EDITOR: "ADD_EDITOR",
     GET_ALL_LIST: "GET_ALL_LIST",
     GET_TAG_LIST: "GET_TAG_LIST",

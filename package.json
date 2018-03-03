@@ -37,18 +37,17 @@
         "style-loader": "^0.18.1",
         "url-loader": "^0.5.7",
         "webpack": "^2.5.1",
-        "webpack-dev-server": "^2.4.5"
+        "webpack-dev-server": "^2.4.5",
+        "file-loader": "^0.11.2"
     },
     "dependencies": {
         "antd": "^3.2.0",
         "babel-runtime": "^6.26.0",
         "fetch-stringify": "^1.0.2",
-        "file-loader": "^0.11.2",
         "highlight.js": "^9.12.0",
         "history": "^4.7.2",
         "react-router-redux": "^5.0.0-alpha.6",
         "redux-thunk": "^2.2.0",
-        "remarkable": "^1.7.1",
-        "url-loader": "^0.5.9"
+        "remarkable": "^1.7.1"
     }
 }

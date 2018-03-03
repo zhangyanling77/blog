@@ -2,7 +2,7 @@
  * @Author: wangcaowei
  * @Date: 2017-08-18 12:58:58
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2018-03-02 02:02:04
+ * @Last Modified time: 2018-03-04 06:02:26
  */
 import api from "../config/api";
 import type from "./type";
@@ -128,7 +128,6 @@ export const checkRegist = username => {
             headers
         })
         .then(res => res.json())
-        // .then(data => data);
 };
 /**
  *用户注册
@@ -154,12 +153,17 @@ export const regist = userInfo => {
  */
 export const login = userInfo => {
     return dispatch => {
-        fetch(api.login, {
+        return fetch(api.login, {
                 method: "POST",
                 body: qs.stringify(userInfo),
                 headers
             })
             .then(res => res.json())
-            .then(data => console.log(data));
+            .then(data => {
+                dispatch({
+                    type: type.SAVE_USER_INFO,
+                    user: data.user
+                })
+            });
     };
 };
