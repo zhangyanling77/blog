@@ -2,10 +2,11 @@
  * @Author: wangcaowei 
  * @Date: 2017-08-21 23:52:13 
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2018-03-04 05:35:36
+ * @Last Modified time: 2018-03-04 18:17:23
  */
 const path = require("path");
 const bcrypt = require("bcrypt");
+const captcha = require("svg-captcha");
 const sequelize = require("../db/db");
 const utils = require("../services/utils");
 const userMod = sequelize.import(path.join(__dirname, "../models/users.js"));
@@ -48,3 +49,16 @@ exports.regist = async(ctx, next) => {
         message: "注册成功"
     };
 };
+/**
+ * 验证码
+ * 
+ * @param {any} ctx 
+ * @param {any} next 
+ */
+exports.getVerifycode = async(ctx, next) => {
+    const verifyInfo = captcha.create({ height: 32, fontSize: 35 });
+    ctx.body = {
+        code: 200,
+        svgVerify: verifyInfo.data
+    }
+}

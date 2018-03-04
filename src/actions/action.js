@@ -2,7 +2,7 @@
  * @Author: wangcaowei
  * @Date: 2017-08-18 12:58:58
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2018-03-04 06:02:26
+ * @Last Modified time: 2018-03-04 17:29:20
  */
 import api from "../config/api";
 import type from "./type";
@@ -117,17 +117,16 @@ export const showLogin = currentStatue => ({
 });
 /**
  * 检查用户名是否已经被注册
- * 
- * @param {any} username 
- * @returns 
+ *
+ * @param {any} username
+ * @returns
  */
 export const checkRegist = username => {
     return fetch(api.checkRegist, {
-            method: "POST",
-            body: qs.stringify({ username }),
-            headers
-        })
-        .then(res => res.json())
+        method: "POST",
+        body: qs.stringify({ username }),
+        headers
+    }).then(res => res.json());
 };
 /**
  *用户注册
@@ -146,6 +145,15 @@ export const regist = userInfo => {
     };
 };
 /**
+ * 保存用户登录后的信息
+ * 
+ * @param {any} userInfo 
+ */
+export const saveUserInfo = username => ({
+    type: type.SAVE_USER_INFO,
+    user: username
+});
+/**
  * 登录
  *
  * @param {any} userInfo
@@ -159,11 +167,16 @@ export const login = userInfo => {
                 headers
             })
             .then(res => res.json())
-            .then(data => {
-                dispatch({
-                    type: type.SAVE_USER_INFO,
-                    user: data.user
-                })
-            });
+            .then(data => data);
     };
+};
+/**
+ * 获取验证码
+ * 
+ * @returns 
+ */
+export const getVerifyCode = () => {
+    return fetch(api.getVerifyCode)
+        .then(res => res.json())
+        .then(data => data.svgVerify);
 };
