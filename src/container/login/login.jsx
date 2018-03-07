@@ -37,7 +37,7 @@ class Login extends Component {
     svgVerify: null
   };
   componentWillReceiveProps(nextProps) {
-    nextProps.status && this.getVerifyCode();
+    !this.props.status && nextProps.status && this.getVerifyCode();
   }
   getVerifyCode = async () => {
     const svgVerify = await getVerifyCode();
@@ -46,7 +46,7 @@ class Login extends Component {
         svgVerify
       },
       () => {
-        document.querySelector("svg").setAttribute("height","100%");
+        document.querySelector("svg").setAttribute("height", "100%");
       }
     );
   };
