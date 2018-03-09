@@ -2,7 +2,7 @@
  * @Author: wangcaowei
  * @Date: 2017-08-18 16:56:49
  * @Last Modified by: wangcaowei
- * @Last Modified time: 2018-03-03 23:54:37
+ * @Last Modified time: 2018-03-09 11:06:42
  */
 const path = require('path');
 const koa = require('koa');
@@ -20,7 +20,7 @@ const app = new koa();
 
 const staticPath = '../dist';
 app.use(static(path.join(__dirname, staticPath)))
-
+console.log(1)
 app.use(errorHandler);
 app.use(bodyParser({
     detectJSON: function(ctx) {
@@ -34,6 +34,8 @@ app.use(session({
     key: "BLOGSESSION", //default "koa:sess"
     maxAge: 600000 //设置session超时时间
 }))
+console.log(2)
+
 app.use(cors());
 app.use(login.routes());
 app.use(publish.routes());

@@ -81,3 +81,116 @@
 [2018-03-04T05:36:40.729] [TRACE] blog - TypeError: Assignment to constant variable.
     at exports.login (/Users/wangcaowei/Documents/frontend/blog/server/services/user.js:28:17)
     at <anonymous>
+[2018-03-09T15:56:56.766] [TRACE] blog - ReferenceError: tokenConf is not defined
+    at Object.exports.createToken.data [as createToken] (e:\work\es\server\services\token.js:17:41)
+    at exports.getVerifycode (e:\work\es\server\services\user.js:63:9)
+    at dispatch (e:\work\es\server\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (e:\work\es\server\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at e:\work\es\server\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (e:\work\es\server\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at e:\work\es\server\node_modules\koa-router\node_modules\koa-compose\index.js:36:12
+    at dispatch (e:\work\es\server\node_modules\koa-router\lib\router.js:351:31)
+    at dispatch (e:\work\es\server\node_modules\koa-compose\index.js:42:32)
+    at next (e:\work\es\server\node_modules\koa-compose\index.js:43:18)
+    at createGenerator (e:\work\es\server\node_modules\koa-convert\index.js:24:16)
+    at createGenerator.next (<anonymous>)
+    at onFulfilled (e:\work\es\server\node_modules\co\index.js:65:19)
+    at e:\work\es\server\node_modules\co\index.js:54:5
+    at Promise (<anonymous>)
+    at Object.co (e:\work\es\server\node_modules\co\index.js:50:10)
+    at Object.toPromise (e:\work\es\server\node_modules\co\index.js:118:63)
+    at next (e:\work\es\server\node_modules\co\index.js:99:29)
+    at onFulfilled (e:\work\es\server\node_modules\co\index.js:69:7)
+    at e:\work\es\server\node_modules\co\index.js:54:5
+    at Promise (<anonymous>)
+    at Object.co (e:\work\es\server\node_modules\co\index.js:50:10)
+[2018-03-09T15:57:08.096] [TRACE] blog - ReferenceError: tokenConf is not defined
+    at Object.exports.createToken.data [as createToken] (e:\work\es\server\services\token.js:17:41)
+    at exports.getVerifycode (e:\work\es\server\services\user.js:63:9)
+    at dispatch (e:\work\es\server\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (e:\work\es\server\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at e:\work\es\server\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (e:\work\es\server\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at e:\work\es\server\node_modules\koa-router\node_modules\koa-compose\index.js:36:12
+    at dispatch (e:\work\es\server\node_modules\koa-router\lib\router.js:351:31)
+    at dispatch (e:\work\es\server\node_modules\koa-compose\index.js:42:32)
+    at next (e:\work\es\server\node_modules\koa-compose\index.js:43:18)
+    at createGenerator (e:\work\es\server\node_modules\koa-convert\index.js:24:16)
+    at createGenerator.next (<anonymous>)
+    at onFulfilled (e:\work\es\server\node_modules\co\index.js:65:19)
+    at e:\work\es\server\node_modules\co\index.js:54:5
+    at Promise (<anonymous>)
+    at Object.co (e:\work\es\server\node_modules\co\index.js:50:10)
+    at Object.toPromise (e:\work\es\server\node_modules\co\index.js:118:63)
+    at next (e:\work\es\server\node_modules\co\index.js:99:29)
+    at onFulfilled (e:\work\es\server\node_modules\co\index.js:69:7)
+    at e:\work\es\server\node_modules\co\index.js:54:5
+    at Promise (<anonymous>)
+    at Object.co (e:\work\es\server\node_modules\co\index.js:50:10)
+[2018-03-09T15:58:27.506] [TRACE] blog - Error: invalid expiresIn option for string payload
+    at Object.module.exports [as sign] (E:\work\es\server\node_modules\._jsonwebtoken@8.2.0@jsonwebtoken\sign.js:123:22)
+    at Object.exports.createToken.data [as createToken] (e:\work\es\server\services\token.js:17:30)
+    at exports.getVerifycode (e:\work\es\server\services\user.js:63:9)
+    at dispatch (e:\work\es\server\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (e:\work\es\server\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at e:\work\es\server\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (e:\work\es\server\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at e:\work\es\server\node_modules\koa-router\node_modules\koa-compose\index.js:36:12
+    at dispatch (e:\work\es\server\node_modules\koa-router\lib\router.js:351:31)
+    at dispatch (e:\work\es\server\node_modules\koa-compose\index.js:42:32)
+    at next (e:\work\es\server\node_modules\koa-compose\index.js:43:18)
+    at createGenerator (e:\work\es\server\node_modules\koa-convert\index.js:24:16)
+    at createGenerator.next (<anonymous>)
+    at onFulfilled (e:\work\es\server\node_modules\co\index.js:65:19)
+    at e:\work\es\server\node_modules\co\index.js:54:5
+    at Promise (<anonymous>)
+    at Object.co (e:\work\es\server\node_modules\co\index.js:50:10)
+    at Object.toPromise (e:\work\es\server\node_modules\co\index.js:118:63)
+    at next (e:\work\es\server\node_modules\co\index.js:99:29)
+    at onFulfilled (e:\work\es\server\node_modules\co\index.js:69:7)
+    at e:\work\es\server\node_modules\co\index.js:54:5
+    at Promise (<anonymous>)
+[2018-03-09T16:04:08.136] [TRACE] blog - undefined
+[2018-03-09T16:05:00.779] [TRACE] blog - undefined
+[2018-03-09T16:10:58.653] [TRACE] blog - undefined
+[2018-03-09T16:11:43.508] [TRACE] blog - undefined
+[2018-03-09T16:12:55.014] [TRACE] blog - UnauthorizedError: 验证码错误
+    at Object.throw (e:\work\es\server\node_modules\koa\lib\context.js:93:11)
+    at Object.exports.verifyToken (e:\work\es\server\services\token.js:30:14)
+    at exports.login (e:\work\es\server\services\user.js:28:9)
+    at <anonymous>
+[2018-03-09T16:14:06.490] [TRACE] blog - UnauthorizedError: 验证码错误
+    at Object.throw (e:\work\es\server\node_modules\koa\lib\context.js:93:11)
+    at Object.exports.verifyToken (e:\work\es\server\services\token.js:30:14)
+    at exports.login (e:\work\es\server\services\user.js:28:9)
+    at <anonymous>
+[2018-03-09T16:14:38.214] [TRACE] blog - UnauthorizedError: 验证码错误
+    at Object.throw (e:\work\es\server\node_modules\koa\lib\context.js:93:11)
+    at Object.exports.verifyToken (e:\work\es\server\services\token.js:30:14)
+    at exports.login (e:\work\es\server\services\user.js:28:9)
+    at <anonymous>
+[2018-03-09T16:15:02.759] [TRACE] blog - UnauthorizedError: 验证码错误
+    at Object.throw (e:\work\es\server\node_modules\koa\lib\context.js:93:11)
+    at Object.exports.verifyToken (e:\work\es\server\services\token.js:30:14)
+    at exports.login (e:\work\es\server\services\user.js:28:9)
+    at <anonymous>
+[2018-03-09T16:21:22.696] [TRACE] blog - UnauthorizedError: 验证码错误
+    at Object.throw (e:\work\es\server\node_modules\koa\lib\context.js:93:11)
+    at Object.exports.verifyToken (e:\work\es\server\services\token.js:30:14)
+    at exports.login (e:\work\es\server\services\user.js:28:9)
+    at <anonymous>
+[2018-03-09T16:21:41.137] [TRACE] blog - UnauthorizedError: 验证码错误
+    at Object.throw (e:\work\es\server\node_modules\koa\lib\context.js:93:11)
+    at Object.exports.verifyToken (e:\work\es\server\services\token.js:30:14)
+    at exports.login (e:\work\es\server\services\user.js:28:9)
+    at <anonymous>
+[2018-03-09T16:29:06.491] [TRACE] blog - UnauthorizedError: 验证码错误
+    at Object.throw (e:\work\es\server\node_modules\koa\lib\context.js:93:11)
+    at Object.exports.verifyToken (e:\work\es\server\services\token.js:31:14)
+    at exports.login (e:\work\es\server\services\user.js:29:9)
+    at <anonymous>
+[2018-03-09T16:29:30.325] [TRACE] blog - UnauthorizedError: 验证码错误
+    at Object.throw (e:\work\es\server\node_modules\koa\lib\context.js:93:11)
+    at Object.exports.verifyToken (e:\work\es\server\services\token.js:31:14)
+    at exports.login (e:\work\es\server\services\user.js:29:9)
+    at <anonymous>

@@ -115,7 +115,7 @@ class Login extends Component {
                 prefix={
                   <Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />
                 }
-                size="default"
+                size="large"
                 placeholder="用户名"
               />
             )}
@@ -128,7 +128,7 @@ class Login extends Component {
                 prefix={
                   <Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />
                 }
-                size="default"
+                size="large"
                 type="password"
                 placeholder="密码"
               />
@@ -140,10 +140,6 @@ class Login extends Component {
                 {getFieldDecorator("verifyCode", {
                   rules: [
                     {
-                      type: "number",
-                      message: "验证码格式不正确"
-                    },
-                    {
                       required: true,
                       message: "验证码不能空"
                     }
@@ -153,7 +149,7 @@ class Login extends Component {
                     prefix={
                       <Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />
                     }
-                    size="default"
+                    size="large"
                     placeholder="验证码"
                   />
                 )}
@@ -162,7 +158,7 @@ class Login extends Component {
                 span={12}
                 dangerouslySetInnerHTML={{ __html: this.state.svgVerify }}
                 onClick={() => this.getVerifyCode()}
-                style={{ cursor: "pointer", height: "35px" }}
+                style={{ cursor: "pointer", height: "40px" }}
               />
             </Row>
           </FormItem>
