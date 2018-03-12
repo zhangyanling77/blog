@@ -194,3 +194,153 @@
     at Object.exports.verifyToken (e:\work\es\server\services\token.js:31:14)
     at exports.login (e:\work\es\server\services\user.js:29:9)
     at <anonymous>
+[2018-03-12T21:43:48.842] [TRACE] blog - TypeError: Cannot read property 'secret' of undefined
+    at Object.exports.createToken.data [as createToken] (/Users/wangcaowei/Documents/frontend/blog/server/services/token.js:18:50)
+    at exports.getVerifycode (/Users/wangcaowei/Documents/frontend/blog/server/services/user.js:63:9)
+    at dispatch (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-compose@3.2.1@koa-compose/index.js:44:32)
+    at next (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-compose@3.2.1@koa-compose/index.js:45:18)
+    at /Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-router@7.4.0@koa-router/lib/router.js:346:16
+    at dispatch (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-compose@3.2.1@koa-compose/index.js:44:32)
+    at /Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-compose@3.2.1@koa-compose/index.js:36:12
+    at dispatch (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-router@7.4.0@koa-router/lib/router.js:351:31)
+    at dispatch (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-compose@4.0.0@koa-compose/index.js:42:32)
+    at next (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-compose@4.0.0@koa-compose/index.js:43:18)
+    at createGenerator (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-convert@1.2.0@koa-convert/index.js:24:16)
+    at createGenerator.next (<anonymous>)
+    at onFulfilled (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_co@4.6.0@co/index.js:65:19)
+    at /Users/wangcaowei/Documents/frontend/blog/server/node_modules/_co@4.6.0@co/index.js:54:5
+    at Promise (<anonymous>)
+    at Object.co (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_co@4.6.0@co/index.js:50:10)
+    at Object.toPromise (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_co@4.6.0@co/index.js:118:63)
+    at next (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_co@4.6.0@co/index.js:99:29)
+    at onFulfilled (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_co@4.6.0@co/index.js:69:7)
+    at /Users/wangcaowei/Documents/frontend/blog/server/node_modules/_co@4.6.0@co/index.js:54:5
+    at Promise (<anonymous>)
+    at Object.co (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_co@4.6.0@co/index.js:50:10)
+[2018-03-12T21:44:10.426] [TRACE] blog - TypeError: Cannot read property 'secret' of undefined
+    at Object.exports.createToken.data [as createToken] (/Users/wangcaowei/Documents/frontend/blog/server/services/token.js:18:50)
+    at exports.getVerifycode (/Users/wangcaowei/Documents/frontend/blog/server/services/user.js:63:9)
+    at dispatch (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-compose@3.2.1@koa-compose/index.js:44:32)
+    at next (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-compose@3.2.1@koa-compose/index.js:45:18)
+    at /Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-router@7.4.0@koa-router/lib/router.js:346:16
+    at dispatch (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-compose@3.2.1@koa-compose/index.js:44:32)
+    at /Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-compose@3.2.1@koa-compose/index.js:36:12
+    at dispatch (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-router@7.4.0@koa-router/lib/router.js:351:31)
+    at dispatch (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-compose@4.0.0@koa-compose/index.js:42:32)
+    at next (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-compose@4.0.0@koa-compose/index.js:43:18)
+    at createGenerator (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-convert@1.2.0@koa-convert/index.js:24:16)
+    at createGenerator.next (<anonymous>)
+    at onFulfilled (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_co@4.6.0@co/index.js:65:19)
+    at /Users/wangcaowei/Documents/frontend/blog/server/node_modules/_co@4.6.0@co/index.js:54:5
+    at Promise (<anonymous>)
+    at Object.co (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_co@4.6.0@co/index.js:50:10)
+    at Object.toPromise (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_co@4.6.0@co/index.js:118:63)
+    at next (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_co@4.6.0@co/index.js:99:29)
+    at onFulfilled (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_co@4.6.0@co/index.js:69:7)
+    at /Users/wangcaowei/Documents/frontend/blog/server/node_modules/_co@4.6.0@co/index.js:54:5
+    at Promise (<anonymous>)
+    at Object.co (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_co@4.6.0@co/index.js:50:10)
+[2018-03-12T21:44:17.259] [TRACE] blog - TypeError: Cannot read property 'secret' of undefined
+    at Object.exports.createToken.data [as createToken] (/Users/wangcaowei/Documents/frontend/blog/server/services/token.js:18:50)
+    at exports.getVerifycode (/Users/wangcaowei/Documents/frontend/blog/server/services/user.js:63:9)
+    at dispatch (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-compose@3.2.1@koa-compose/index.js:44:32)
+    at next (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-compose@3.2.1@koa-compose/index.js:45:18)
+    at /Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-router@7.4.0@koa-router/lib/router.js:346:16
+    at dispatch (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-compose@3.2.1@koa-compose/index.js:44:32)
+    at /Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-compose@3.2.1@koa-compose/index.js:36:12
+    at dispatch (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-router@7.4.0@koa-router/lib/router.js:351:31)
+    at dispatch (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-compose@4.0.0@koa-compose/index.js:42:32)
+    at next (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-compose@4.0.0@koa-compose/index.js:43:18)
+    at createGenerator (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-convert@1.2.0@koa-convert/index.js:24:16)
+    at createGenerator.next (<anonymous>)
+    at onFulfilled (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_co@4.6.0@co/index.js:65:19)
+    at /Users/wangcaowei/Documents/frontend/blog/server/node_modules/_co@4.6.0@co/index.js:54:5
+    at Promise (<anonymous>)
+    at Object.co (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_co@4.6.0@co/index.js:50:10)
+    at Object.toPromise (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_co@4.6.0@co/index.js:118:63)
+    at next (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_co@4.6.0@co/index.js:99:29)
+    at onFulfilled (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_co@4.6.0@co/index.js:69:7)
+    at /Users/wangcaowei/Documents/frontend/blog/server/node_modules/_co@4.6.0@co/index.js:54:5
+    at Promise (<anonymous>)
+    at Object.co (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_co@4.6.0@co/index.js:50:10)
+[2018-03-12T21:45:08.426] [TRACE] blog - TypeError: Cannot read property 'secret' of undefined
+    at Object.exports.createToken.data [as createToken] (/Users/wangcaowei/Documents/frontend/blog/server/services/token.js:18:50)
+    at exports.getVerifycode (/Users/wangcaowei/Documents/frontend/blog/server/services/user.js:63:9)
+    at dispatch (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-compose@3.2.1@koa-compose/index.js:44:32)
+    at next (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-compose@3.2.1@koa-compose/index.js:45:18)
+    at /Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-router@7.4.0@koa-router/lib/router.js:346:16
+    at dispatch (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-compose@3.2.1@koa-compose/index.js:44:32)
+    at /Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-compose@3.2.1@koa-compose/index.js:36:12
+    at dispatch (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-router@7.4.0@koa-router/lib/router.js:351:31)
+    at dispatch (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-compose@4.0.0@koa-compose/index.js:42:32)
+    at next (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-compose@4.0.0@koa-compose/index.js:43:18)
+    at createGenerator (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-convert@1.2.0@koa-convert/index.js:24:16)
+    at createGenerator.next (<anonymous>)
+    at onFulfilled (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_co@4.6.0@co/index.js:65:19)
+    at /Users/wangcaowei/Documents/frontend/blog/server/node_modules/_co@4.6.0@co/index.js:54:5
+    at Promise (<anonymous>)
+    at Object.co (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_co@4.6.0@co/index.js:50:10)
+    at Object.toPromise (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_co@4.6.0@co/index.js:118:63)
+    at next (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_co@4.6.0@co/index.js:99:29)
+    at onFulfilled (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_co@4.6.0@co/index.js:69:7)
+    at /Users/wangcaowei/Documents/frontend/blog/server/node_modules/_co@4.6.0@co/index.js:54:5
+    at Promise (<anonymous>)
+    at Object.co (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_co@4.6.0@co/index.js:50:10)
+[2018-03-12T21:45:18.346] [TRACE] blog - TypeError: Cannot read property 'secret' of undefined
+    at Object.exports.createToken.data [as createToken] (/Users/wangcaowei/Documents/frontend/blog/server/services/token.js:18:50)
+    at exports.getVerifycode (/Users/wangcaowei/Documents/frontend/blog/server/services/user.js:63:9)
+    at dispatch (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-compose@3.2.1@koa-compose/index.js:44:32)
+    at next (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-compose@3.2.1@koa-compose/index.js:45:18)
+    at /Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-router@7.4.0@koa-router/lib/router.js:346:16
+    at dispatch (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-compose@3.2.1@koa-compose/index.js:44:32)
+    at /Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-compose@3.2.1@koa-compose/index.js:36:12
+    at dispatch (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-router@7.4.0@koa-router/lib/router.js:351:31)
+    at dispatch (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-compose@4.0.0@koa-compose/index.js:42:32)
+    at next (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-compose@4.0.0@koa-compose/index.js:43:18)
+    at createGenerator (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-convert@1.2.0@koa-convert/index.js:24:16)
+    at createGenerator.next (<anonymous>)
+    at onFulfilled (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_co@4.6.0@co/index.js:65:19)
+    at /Users/wangcaowei/Documents/frontend/blog/server/node_modules/_co@4.6.0@co/index.js:54:5
+    at Promise (<anonymous>)
+    at Object.co (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_co@4.6.0@co/index.js:50:10)
+    at Object.toPromise (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_co@4.6.0@co/index.js:118:63)
+    at next (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_co@4.6.0@co/index.js:99:29)
+    at onFulfilled (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_co@4.6.0@co/index.js:69:7)
+    at /Users/wangcaowei/Documents/frontend/blog/server/node_modules/_co@4.6.0@co/index.js:54:5
+    at Promise (<anonymous>)
+    at Object.co (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_co@4.6.0@co/index.js:50:10)
+[2018-03-12T21:47:52.914] [TRACE] blog - TypeError: Cannot read property 'secret' of undefined
+    at Object.exports.createToken.data [as createToken] (/Users/wangcaowei/Documents/frontend/blog/server/services/token.js:18:50)
+    at exports.getVerifycode (/Users/wangcaowei/Documents/frontend/blog/server/services/user.js:63:9)
+    at dispatch (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-compose@3.2.1@koa-compose/index.js:44:32)
+    at next (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-compose@3.2.1@koa-compose/index.js:45:18)
+    at /Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-router@7.4.0@koa-router/lib/router.js:346:16
+    at dispatch (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-compose@3.2.1@koa-compose/index.js:44:32)
+    at /Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-compose@3.2.1@koa-compose/index.js:36:12
+    at dispatch (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-router@7.4.0@koa-router/lib/router.js:351:31)
+    at dispatch (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-compose@4.0.0@koa-compose/index.js:42:32)
+    at next (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-compose@4.0.0@koa-compose/index.js:43:18)
+    at createGenerator (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-convert@1.2.0@koa-convert/index.js:24:16)
+    at createGenerator.next (<anonymous>)
+    at onFulfilled (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_co@4.6.0@co/index.js:65:19)
+    at /Users/wangcaowei/Documents/frontend/blog/server/node_modules/_co@4.6.0@co/index.js:54:5
+    at Promise (<anonymous>)
+    at Object.co (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_co@4.6.0@co/index.js:50:10)
+    at Object.toPromise (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_co@4.6.0@co/index.js:118:63)
+    at next (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_co@4.6.0@co/index.js:99:29)
+    at onFulfilled (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_co@4.6.0@co/index.js:69:7)
+    at /Users/wangcaowei/Documents/frontend/blog/server/node_modules/_co@4.6.0@co/index.js:54:5
+    at Promise (<anonymous>)
+    at Object.co (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_co@4.6.0@co/index.js:50:10)
+[2018-03-12T23:42:46.395] [TRACE] blog - Error: .keys required for signed cookies
+    at Cookies.set (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_cookies@0.7.1@cookies/index.js:108:27)
+    at ContextSession.save (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-session@5.8.1@koa-session/lib/context.js:320:22)
+    at ContextSession.commit (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-session@5.8.1@koa-session/lib/context.js:231:16)
+    at session (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-session@5.8.1@koa-session/index.js:45:18)
+    at <anonymous>
+[2018-03-12T23:47:01.407] [TRACE] blog - Error: .keys required for signed cookies
+    at Cookies.set (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_cookies@0.7.1@cookies/index.js:108:27)
+    at ContextSession.save (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-session@5.8.1@koa-session/lib/context.js:320:22)
+    at ContextSession.commit (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-session@5.8.1@koa-session/lib/context.js:231:16)
+    at session (/Users/wangcaowei/Documents/frontend/blog/server/node_modules/_koa-session@5.8.1@koa-session/index.js:45:18)
+    at <anonymous>

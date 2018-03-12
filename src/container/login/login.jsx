@@ -41,14 +41,9 @@ class Login extends Component {
   }
   getVerifyCode = async () => {
     const svgVerify = await getVerifyCode();
-    this.setState(
-      {
-        svgVerify
-      },
-      () => {
-        document.querySelector("svg").setAttribute("height", "100%");
-      }
-    );
+    this.setState({
+      svgVerify
+    });
   };
   handleSubmit = e => {
     e.preventDefault();
